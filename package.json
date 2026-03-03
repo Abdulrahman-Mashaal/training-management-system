@@ -6,7 +6,9 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "mock": "json-server --watch mock-server/db.json --port 3000",
+    "start:mock": "npm run mock & npm run start"
   },
   "prettier": {
     "printWidth": 100,
@@ -28,7 +30,17 @@
     "@angular/forms": "^20.3.0",
     "@angular/platform-browser": "^20.3.0",
     "@angular/router": "^20.3.0",
+    "@ngx-translate/core": "^17.0.0",
+    "@ngx-translate/http-loader": "^17.0.0",
+    "@primeuix/themes": "^2.0.3",
+    "@tailwindcss/postcss": "^4.2.1",
+    "postcss": "^8.5.6",
+    "primeicons": "^7.0.0",
+    "primeng": "^20.4.0",
+    "quill": "^2.0.3",
     "rxjs": "~7.8.0",
+    "tailwindcss": "^4.2.1",
+    "tailwindcss-primeui": "^0.6.1",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
   },
@@ -38,6 +50,7 @@
     "@angular/compiler-cli": "^20.3.0",
     "@types/jasmine": "~5.1.0",
     "jasmine-core": "~5.9.0",
+    "json-server": "^1.0.0-beta.12",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",

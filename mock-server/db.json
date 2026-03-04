@@ -1,0 +1,1979 @@
+{
+  "dashboard": {
+    "stats": {
+      "totalStudents": 15,
+      "totalTeachers": 15,
+      "activeCourses": 10,
+      "completedCourses": 3,
+      "monthlyRevenue": 215000
+    },
+    "recentActivities": [
+      {
+        "id": 1,
+        "type": "enrollment",
+        "studentId": 101,
+        "courseId": 1,
+        "messageEn": "Alice Johnson enrolled in Advanced Angular",
+        "messageAr": "انضمت أليس جونسون إلى دورة أنجولار المتقدمة",
+        "timestamp": "2025-02-01T09:15:00Z"
+      },
+      {
+        "id": 2,
+        "type": "completion",
+        "studentId": 102,
+        "courseId": 3,
+        "messageEn": "Bob Smith completed UI/UX Foundations",
+        "messageAr": "أنهى بوب سميث أساسيات واجهة وتجربة المستخدم",
+        "timestamp": "2025-02-01T16:42:00Z"
+      },
+      {
+        "id": 3,
+        "type": "session",
+        "courseId": 2,
+        "messageEn": "Live session scheduled for Data Visualization",
+        "messageAr": "تم جدولة جلسة مباشرة لتصور البيانات",
+        "timestamp": "2025-01-31T12:00:00Z"
+      },
+      {
+        "id": 4,
+        "type": "feedback",
+        "studentId": 104,
+        "courseId": 4,
+        "messageEn": "Diana left feedback on React Essentials",
+        "messageAr": "تركت ديانا تقييماً لدورة أساسيات رياكت",
+        "timestamp": "2025-01-31T18:25:00Z"
+      },
+      {
+        "id": 5,
+        "type": "enrollment",
+        "studentId": 105,
+        "courseId": 5,
+        "messageEn": "Ethan enrolled in Cloud Fundamentals",
+        "messageAr": "سجل إيثان في أساسيات الحوسبة السحابية",
+        "timestamp": "2025-01-30T10:10:00Z"
+      },
+      {
+        "id": 6,
+        "type": "completion",
+        "studentId": 106,
+        "courseId": 6,
+        "messageEn": "Fatima completed AI for Beginners",
+        "messageAr": "أنهت فاطمة دورة الذكاء الاصطناعي للمبتدئين",
+        "timestamp": "2025-01-30T15:00:00Z"
+      },
+      {
+        "id": 7,
+        "type": "session",
+        "courseId": 7,
+        "messageEn": "DevOps workshop announced",
+        "messageAr": "تم الإعلان عن ورشة عمل ديف أوبس",
+        "timestamp": "2025-01-29T11:30:00Z"
+      },
+      {
+        "id": 8,
+        "type": "enrollment",
+        "studentId": 107,
+        "courseId": 8,
+        "messageEn": "George joined Mobile App Design",
+        "messageAr": "انضم جورج إلى تصميم تطبيقات الجوال",
+        "timestamp": "2025-01-29T09:05:00Z"
+      },
+      {
+        "id": 9,
+        "type": "completion",
+        "studentId": 108,
+        "courseId": 9,
+        "messageEn": "Hala completed Node.js APIs",
+        "messageAr": "أنهت هلا دورة واجهات برمجة تطبيقات نود",
+        "timestamp": "2025-01-28T17:40:00Z"
+      },
+      {
+        "id": 10,
+        "type": "enrollment",
+        "studentId": 109,
+        "courseId": 10,
+        "messageEn": "Ibrahim enrolled in Advanced CSS",
+        "messageAr": "سجل إبراهيم في دورة CSS المتقدمة",
+        "timestamp": "2025-01-28T08:50:00Z"
+      },
+      {
+        "id": 11,
+        "type": "session",
+        "courseId": 11,
+        "messageEn": "Security lab open",
+        "messageAr": "فتح مختبر الأمن",
+        "timestamp": "2025-01-27T13:20:00Z"
+      },
+      {
+        "id": 12,
+        "type": "enrollment",
+        "studentId": 110,
+        "courseId": 12,
+        "messageEn": "Jana joined Product Management",
+        "messageAr": "انضمت جانا إلى إدارة المنتجات",
+        "timestamp": "2025-01-27T09:30:00Z"
+      },
+      {
+        "id": 13,
+        "type": "completion",
+        "studentId": 111,
+        "courseId": 13,
+        "messageEn": "Khaled completed Testing Automation",
+        "messageAr": "أنهى خالد أتمتة الاختبارات",
+        "timestamp": "2025-01-26T18:05:00Z"
+      },
+      {
+        "id": 14,
+        "type": "enrollment",
+        "studentId": 112,
+        "courseId": 14,
+        "messageEn": "Layla enrolled in Business Analytics",
+        "messageAr": "سجلت ليلى في تحليلات الأعمال",
+        "timestamp": "2025-01-26T11:10:00Z"
+      },
+      {
+        "id": 15,
+        "type": "enrollment",
+        "studentId": 113,
+        "courseId": 15,
+        "messageEn": "Mohamed joined Digital Marketing",
+        "messageAr": "انضم محمد إلى التسويق الرقمي",
+        "timestamp": "2025-01-25T10:00:00Z"
+      }
+    ],
+    "upcomingSessions": [
+      {
+        "id": 1,
+        "courseId": 1,
+        "titleEn": "State Management in Angular",
+        "titleAr": "إدارة الحالة في أنجولار",
+        "date": "2025-02-05",
+        "startTime": "10:00",
+        "durationMinutes": 90,
+        "mode": "online",
+        "location": "Zoom"
+      },
+      {
+        "id": 2,
+        "courseId": 2,
+        "titleEn": "Hands-on with D3",
+        "titleAr": "تطبيق عملي على D3",
+        "date": "2025-02-06",
+        "startTime": "14:00",
+        "durationMinutes": 120,
+        "mode": "onsite",
+        "location": "Room 204"
+      },
+      {
+        "id": 3,
+        "courseId": 3,
+        "titleEn": "Design Critique",
+        "titleAr": "نقد التصميم",
+        "date": "2025-02-07",
+        "startTime": "15:00",
+        "durationMinutes": 60,
+        "mode": "online",
+        "location": "Teams"
+      },
+      {
+        "id": 4,
+        "courseId": 4,
+        "titleEn": "React Hooks Deep Dive",
+        "titleAr": "تعمق في React Hooks",
+        "date": "2025-02-08",
+        "startTime": "09:00",
+        "durationMinutes": 120,
+        "mode": "online",
+        "location": "Zoom"
+      },
+      {
+        "id": 5,
+        "courseId": 5,
+        "titleEn": "Cloud IAM Basics",
+        "titleAr": "أساسيات إدارة الهويات السحابية",
+        "date": "2025-02-08",
+        "startTime": "13:00",
+        "durationMinutes": 75,
+        "mode": "online",
+        "location": "Meet"
+      },
+      {
+        "id": 6,
+        "courseId": 6,
+        "titleEn": "AI Ethics Roundtable",
+        "titleAr": "طاولة مستديرة لأخلاقيات الذكاء الاصطناعي",
+        "date": "2025-02-09",
+        "startTime": "16:00",
+        "durationMinutes": 90,
+        "mode": "onsite",
+        "location": "Room 310"
+      },
+      {
+        "id": 7,
+        "courseId": 7,
+        "titleEn": "CI/CD Pipeline Lab",
+        "titleAr": "مختبر خطوط CI/CD",
+        "date": "2025-02-10",
+        "startTime": "11:00",
+        "durationMinutes": 150,
+        "mode": "onsite",
+        "location": "Lab A"
+      },
+      {
+        "id": 8,
+        "courseId": 8,
+        "titleEn": "Mobile UX Patterns",
+        "titleAr": "أنماط تجربة المستخدم للجوال",
+        "date": "2025-02-10",
+        "startTime": "15:30",
+        "durationMinutes": 90,
+        "mode": "online",
+        "location": "Zoom"
+      },
+      {
+        "id": 9,
+        "courseId": 9,
+        "titleEn": "GraphQL vs REST",
+        "titleAr": "GraphQL مقابل REST",
+        "date": "2025-02-11",
+        "startTime": "10:30",
+        "durationMinutes": 80,
+        "mode": "online",
+        "location": "Meet"
+      },
+      {
+        "id": 10,
+        "courseId": 10,
+        "titleEn": "CSS Grid Mastery",
+        "titleAr": "إتقان CSS Grid",
+        "date": "2025-02-11",
+        "startTime": "14:00",
+        "durationMinutes": 110,
+        "mode": "onsite",
+        "location": "Room 110"
+      },
+      {
+        "id": 11,
+        "courseId": 11,
+        "titleEn": "Secure Coding",
+        "titleAr": "البرمجة الآمنة",
+        "date": "2025-02-12",
+        "startTime": "09:30",
+        "durationMinutes": 100,
+        "mode": "online",
+        "location": "Zoom"
+      },
+      {
+        "id": 12,
+        "courseId": 12,
+        "titleEn": "Product Discovery",
+        "titleAr": "اكتشاف المنتجات",
+        "date": "2025-02-12",
+        "startTime": "16:00",
+        "durationMinutes": 90,
+        "mode": "onsite",
+        "location": "Room 208"
+      },
+      {
+        "id": 13,
+        "courseId": 13,
+        "titleEn": "E2E Testing Clinic",
+        "titleAr": "عيادة الاختبار من البداية للنهاية",
+        "date": "2025-02-13",
+        "startTime": "11:00",
+        "durationMinutes": 120,
+        "mode": "online",
+        "location": "Teams"
+      },
+      {
+        "id": 14,
+        "courseId": 14,
+        "titleEn": "Storytelling with Data",
+        "titleAr": "سرد القصص بالبيانات",
+        "date": "2025-02-14",
+        "startTime": "10:00",
+        "durationMinutes": 90,
+        "mode": "online",
+        "location": "Zoom"
+      },
+      {
+        "id": 15,
+        "courseId": 15,
+        "titleEn": "SEO & SEM",
+        "titleAr": "تحسين محركات البحث والإعلانات",
+        "date": "2025-02-15",
+        "startTime": "13:00",
+        "durationMinutes": 100,
+        "mode": "onsite",
+        "location": "Room 102"
+      }
+    ]
+  },
+  "categories": [
+    {
+      "id": "web-dev",
+      "labelEn": "Web Development",
+      "labelAr": "تطوير الويب"
+    },
+    {
+      "id": "data",
+      "labelEn": "Data",
+      "labelAr": "البيانات"
+    },
+    {
+      "id": "design",
+      "labelEn": "Design",
+      "labelAr": "التصميم"
+    },
+    {
+      "id": "cloud",
+      "labelEn": "Cloud",
+      "labelAr": "الحوسبة السحابية"
+    },
+    {
+      "id": "ai-ml",
+      "labelEn": "AI & ML",
+      "labelAr": "الذكاء الاصطناعي والتعلم الآلي"
+    },
+    {
+      "id": "devops",
+      "labelEn": "DevOps",
+      "labelAr": "ديف أوبس"
+    },
+    {
+      "id": "mobile",
+      "labelEn": "Mobile",
+      "labelAr": "الجوال"
+    },
+    {
+      "id": "backend",
+      "labelEn": "Backend",
+      "labelAr": "الواجهة الخلفية"
+    },
+    {
+      "id": "frontend",
+      "labelEn": "Frontend",
+      "labelAr": "الواجهة الأمامية"
+    },
+    {
+      "id": "security",
+      "labelEn": "Security",
+      "labelAr": "الأمن"
+    },
+    {
+      "id": "product",
+      "labelEn": "Product",
+      "labelAr": "المنتج"
+    },
+    {
+      "id": "testing",
+      "labelEn": "Testing",
+      "labelAr": "الاختبارات"
+    },
+    {
+      "id": "management",
+      "labelEn": "Management",
+      "labelAr": "الإدارة"
+    },
+    {
+      "id": "analytics",
+      "labelEn": "Analytics",
+      "labelAr": "التحليلات"
+    },
+    {
+      "id": "marketing",
+      "labelEn": "Marketing",
+      "labelAr": "التسويق"
+    }
+  ],
+  "courses": [
+    {
+      "id": "1",
+      "titleEn": "Advanced Angular",
+      "titleAr": "أنجولار متقدم",
+      "code": "ANG-401",
+      "categoryId": "web-dev",
+      "level": "Advanced",
+      "durationHours": 24,
+      "startDate": "2025-02-03",
+      "endDate": "2025-03-20",
+      "teacherId": 201,
+      "status": "active",
+      "seatsTotal": 30,
+      "seatsTaken": 18,
+      "price": 5200,
+      "thumbnail": "assets/img/courses/angular.jpg",
+      "summaryEn": "Scalable Angular apps with architecture patterns.",
+      "summaryAr": "تطبيقات أنجولار قابلة للتوسع مع أنماط معمارية."
+    },
+    {
+      "id": "2",
+      "titleEn": "Data Visualization with D3",
+      "titleAr": "تصور البيانات باستخدام D3",
+      "code": "D3-210",
+      "categoryId": "data",
+      "level": "Intermediate",
+      "durationHours": 18,
+      "startDate": "2025-02-05",
+      "endDate": "2025-03-15",
+      "teacherId": 202,
+      "status": "active",
+      "seatsTotal": 20,
+      "seatsTaken": 12,
+      "price": 4200,
+      "thumbnail": "assets/img/courses/d3.jpg",
+      "summaryEn": "Interactive charts and dashboards with D3.",
+      "summaryAr": "رسوم ولوحات تفاعلية باستخدام D3."
+    },
+    {
+      "id": "3",
+      "titleEn": "UI/UX Foundations",
+      "titleAr": "أساسيات واجهة وتجربة المستخدم",
+      "code": "UIX-101",
+      "categoryId": "design",
+      "level": "Beginner",
+      "durationHours": 12,
+      "startDate": "2025-02-01",
+      "endDate": "2025-02-28",
+      "teacherId": 203,
+      "status": "completed",
+      "seatsTotal": 25,
+      "seatsTaken": 25,
+      "price": 2800,
+      "thumbnail": "assets/img/courses/uiux.jpg",
+      "summaryEn": "Principles of UI/UX with hands-on projects.",
+      "summaryAr": "مبادئ واجهة وتجربة المستخدم مع مشاريع تطبيقية."
+    },
+    {
+      "id": "4",
+      "titleEn": "React Essentials",
+      "titleAr": "أساسيات رياكت",
+      "code": "REA-120",
+      "categoryId": "frontend",
+      "level": "Intermediate",
+      "durationHours": 20,
+      "startDate": "2025-02-04",
+      "endDate": "2025-03-12",
+      "teacherId": 204,
+      "status": "active",
+      "seatsTotal": 28,
+      "seatsTaken": 14,
+      "price": 3900,
+      "thumbnail": "assets/img/courses/react.jpg",
+      "summaryEn": "Build modern SPAs with React and hooks.",
+      "summaryAr": "بناء تطبيقات أحادية الصفحة حديثة باستخدام رياكت."
+    },
+    {
+      "id": "5",
+      "titleEn": "Cloud Fundamentals",
+      "titleAr": "أساسيات الحوسبة السحابية",
+      "code": "CLD-101",
+      "categoryId": "cloud",
+      "level": "Beginner",
+      "durationHours": 14,
+      "startDate": "2025-02-06",
+      "endDate": "2025-03-05",
+      "teacherId": 205,
+      "status": "active",
+      "seatsTotal": 26,
+      "seatsTaken": 17,
+      "price": 3100,
+      "thumbnail": "assets/img/courses/cloud.jpg",
+      "summaryEn": "Core cloud concepts, IAM, and networking.",
+      "summaryAr": "مفاهيم السحابة الأساسية وإدارة الهويات والشبكات."
+    },
+    {
+      "id": "6",
+      "titleEn": "AI for Beginners",
+      "titleAr": "الذكاء الاصطناعي للمبتدئين",
+      "code": "AI-100",
+      "categoryId": "ai-ml",
+      "level": "Beginner",
+      "durationHours": 16,
+      "startDate": "2025-02-02",
+      "endDate": "2025-02-28",
+      "teacherId": 206,
+      "status": "completed",
+      "seatsTotal": 24,
+      "seatsTaken": 24,
+      "price": 3500,
+      "thumbnail": "assets/img/courses/ai.jpg",
+      "summaryEn": "Intro to AI/ML concepts and simple models.",
+      "summaryAr": "مقدمة في مفاهيم الذكاء الاصطناعي والتعلم الآلي ونماذج بسيطة."
+    },
+    {
+      "id": "7",
+      "titleEn": "DevOps Foundations",
+      "titleAr": "أساسيات ديف أوبس",
+      "code": "DEV-150",
+      "categoryId": "devops",
+      "level": "Intermediate",
+      "durationHours": 18,
+      "startDate": "2025-02-07",
+      "endDate": "2025-03-10",
+      "teacherId": 207,
+      "status": "active",
+      "seatsTotal": 22,
+      "seatsTaken": 11,
+      "price": 3600,
+      "thumbnail": "assets/img/courses/devops.jpg",
+      "summaryEn": "CI/CD pipelines, containers, and monitoring.",
+      "summaryAr": "خطوط CI/CD والحاويات والمراقبة."
+    },
+    {
+      "id": "8",
+      "titleEn": "Mobile App Design",
+      "titleAr": "تصميم تطبيقات الجوال",
+      "code": "MOB-130",
+      "categoryId": "mobile",
+      "level": "Intermediate",
+      "durationHours": 15,
+      "startDate": "2025-02-09",
+      "endDate": "2025-03-16",
+      "teacherId": 208,
+      "status": "active",
+      "seatsTotal": 20,
+      "seatsTaken": 9,
+      "price": 3300,
+      "thumbnail": "assets/img/courses/mobile.jpg",
+      "summaryEn": "Design systems and UX for mobile apps.",
+      "summaryAr": "أنظمة التصميم وتجربة المستخدم لتطبيقات الجوال."
+    },
+    {
+      "id": "9",
+      "titleEn": "Node.js APIs",
+      "titleAr": "واجهات برمجة تطبيقات نود",
+      "code": "NJS-220",
+      "categoryId": "backend",
+      "level": "Intermediate",
+      "durationHours": 18,
+      "startDate": "2025-02-03",
+      "endDate": "2025-03-08",
+      "teacherId": 209,
+      "status": "active",
+      "seatsTotal": 24,
+      "seatsTaken": 19,
+      "price": 4000,
+      "thumbnail": "assets/img/courses/node.jpg",
+      "summaryEn": "REST/GraphQL APIs with Node and security.",
+      "summaryAr": "واجهات REST/GraphQL باستخدام نود مع الأمان."
+    },
+    {
+      "id": "10",
+      "titleEn": "Advanced CSS",
+      "titleAr": "CSS متقدم",
+      "code": "CSS-310",
+      "categoryId": "frontend",
+      "level": "Advanced",
+      "durationHours": 14,
+      "startDate": "2025-02-10",
+      "endDate": "2025-03-12",
+      "teacherId": 210,
+      "status": "upcoming",
+      "seatsTotal": 18,
+      "seatsTaken": 6,
+      "price": 2900,
+      "thumbnail": "assets/img/courses/css.jpg",
+      "summaryEn": "CSS Grid, Flexbox, motion, and theming.",
+      "summaryAr": "شبكات CSS و Flexbox والحركة والتنسيق."
+    },
+    {
+      "id": "11",
+      "titleEn": "Secure Coding",
+      "titleAr": "البرمجة الآمنة",
+      "code": "SEC-205",
+      "categoryId": "security",
+      "level": "Intermediate",
+      "durationHours": 16,
+      "startDate": "2025-02-11",
+      "endDate": "2025-03-09",
+      "teacherId": 211,
+      "status": "active",
+      "seatsTotal": 20,
+      "seatsTaken": 10,
+      "price": 3700,
+      "thumbnail": "assets/img/courses/security.jpg",
+      "summaryEn": "OWASP, threat modeling, and secure patterns.",
+      "summaryAr": "OWASP ونمذجة التهديدات وأنماط الأمان."
+    },
+    {
+      "id": "12",
+      "titleEn": "Product Management",
+      "titleAr": "إدارة المنتجات",
+      "code": "PRD-101",
+      "categoryId": "product",
+      "level": "Beginner",
+      "durationHours": 12,
+      "startDate": "2025-02-12",
+      "endDate": "2025-03-05",
+      "teacherId": 212,
+      "status": "upcoming",
+      "seatsTotal": 25,
+      "seatsTaken": 8,
+      "price": 2600,
+      "thumbnail": "assets/img/courses/product.jpg",
+      "summaryEn": "Discovery, delivery, and prioritization basics.",
+      "summaryAr": "أساسيات الاكتشاف والتسليم وتحديد الأولويات."
+    },
+    {
+      "id": "13",
+      "titleEn": "Testing Automation",
+      "titleAr": "أتمتة الاختبارات",
+      "code": "TST-180",
+      "categoryId": "testing",
+      "level": "Intermediate",
+      "durationHours": 15,
+      "startDate": "2025-02-04",
+      "endDate": "2025-03-02",
+      "teacherId": 213,
+      "status": "completed",
+      "seatsTotal": 22,
+      "seatsTaken": 22,
+      "price": 3200,
+      "thumbnail": "assets/img/courses/testing.jpg",
+      "summaryEn": "Unit, integration, and E2E automation tools.",
+      "summaryAr": "أدوات الأتمتة للوحدات والتكامل والاختبارات الشاملة."
+    },
+    {
+      "id": "14",
+      "titleEn": "Business Analytics",
+      "titleAr": "تحليلات الأعمال",
+      "code": "BAN-140",
+      "categoryId": "analytics",
+      "level": "Intermediate",
+      "durationHours": 14,
+      "startDate": "2025-02-09",
+      "endDate": "2025-03-06",
+      "teacherId": 214,
+      "status": "active",
+      "seatsTotal": 23,
+      "seatsTaken": 13,
+      "price": 3400,
+      "thumbnail": "assets/img/courses/analytics.jpg",
+      "summaryEn": "Dashboards, KPIs, and storytelling with data.",
+      "summaryAr": "لوحات المعلومات ومؤشرات الأداء وسرد القصص بالبيانات."
+    },
+    {
+      "id": "15",
+      "titleEn": "Digital Marketing",
+      "titleAr": "التسويق الرقمي",
+      "code": "DMK-160",
+      "categoryId": "marketing",
+      "level": "Beginner",
+      "durationHours": 12,
+      "startDate": "2025-02-15",
+      "endDate": "2025-03-20",
+      "teacherId": 215,
+      "status": "active",
+      "seatsTotal": 30,
+      "seatsTaken": 9,
+      "price": 2500,
+      "thumbnail": "assets/img/courses/marketing.jpg",
+      "summaryEn": "SEO, SEM, and content strategy essentials.",
+      "summaryAr": "أساسيات تحسين محركات البحث والإعلانات واستراتيجية المحتوى."
+    }
+  ],
+  "teachers": [
+    {
+      "id": "201",
+      "firstNameEn": "Karen",
+      "firstNameAr": "كارين",
+      "lastNameEn": "Lee",
+      "lastNameAr": "لي",
+      "email": "karen.lee@example.com",
+      "phone": "+1-555-0101",
+      "departmentEn": "Web Development",
+      "departmentAr": "تطوير الويب",
+      "bioEn": "10+ years building enterprise Angular applications with a focus on scalable architecture and performance optimization.",
+      "bioAr": "أكثر من 10 سنوات في بناء تطبيقات أنجولار للمؤسسات مع تركيز على البنية المعمارية القابلة للتوسع وتحسين الأداء.",
+      "rating": 4.8,
+      "status": "active",
+      "specialties": [
+        "Angular",
+        "TypeScript",
+        "RxJS"
+      ],
+      "avatar": "assets/img/teachers/karen.jpg"
+    },
+    {
+      "id": "202",
+      "firstNameEn": "Miguel",
+      "firstNameAr": "ميغيل",
+      "lastNameEn": "Santos",
+      "lastNameAr": "سانتوس",
+      "email": "miguel.santos@example.com",
+      "phone": "+1-555-0102",
+      "departmentEn": "Data Science",
+      "departmentAr": "علم البيانات",
+      "bioEn": "Data visualization specialist with deep expertise in D3.js and interactive dashboards for business intelligence.",
+      "bioAr": "متخصص في تصور البيانات مع خبرة عميقة في D3.js ولوحات المعلومات التفاعلية لذكاء الأعمال.",
+      "rating": 4.6,
+      "status": "active",
+      "specialties": [
+        "Data Visualization",
+        "D3.js",
+        "Python"
+      ],
+      "avatar": "assets/img/teachers/miguel.jpg"
+    },
+    {
+      "id": "203",
+      "firstNameEn": "Priya",
+      "firstNameAr": "برِيا",
+      "lastNameEn": "Patel",
+      "lastNameAr": "باتيل",
+      "email": "priya.patel@example.com",
+      "phone": "+1-555-0103",
+      "departmentEn": "Design",
+      "departmentAr": "التصميم",
+      "bioEn": "Product designer with 8 years coaching teams on UI/UX principles, Figma workflows, and accessible design systems.",
+      "bioAr": "مصممة منتجات بخبرة 8 سنوات في تدريب الفرق على مبادئ واجهة وتجربة المستخدم وسير عمل Figma وأنظمة التصميم.",
+      "rating": 4.9,
+      "status": "inactive",
+      "specialties": [
+        "UI/UX Design",
+        "Figma",
+        "Design Systems"
+      ],
+      "avatar": "assets/img/teachers/priya.jpg"
+    },
+    {
+      "id": "204",
+      "firstNameEn": "Samir",
+      "firstNameAr": "سمير",
+      "lastNameEn": "Haddad",
+      "lastNameAr": "حداد",
+      "email": "samir.haddad@example.com",
+      "phone": "+1-555-0104",
+      "departmentEn": "Frontend",
+      "departmentAr": "الواجهة الأمامية",
+      "bioEn": "React and web performance expert with a passion for building lightning-fast user interfaces and modern SPA architecture.",
+      "bioAr": "خبير في رياكت وأداء الويب مع شغف لبناء واجهات مستخدم سريعة وبنية تطبيقات أحادية الصفحة الحديثة.",
+      "rating": 4.7,
+      "status": "active",
+      "specialties": [
+        "React",
+        "JavaScript",
+        "Web Performance"
+      ],
+      "avatar": "assets/img/teachers/samir.jpg"
+    },
+    {
+      "id": "205",
+      "firstNameEn": "Emily",
+      "firstNameAr": "إميلي",
+      "lastNameEn": "Chen",
+      "lastNameAr": "تشين",
+      "email": "emily.chen@example.com",
+      "phone": "+1-555-0105",
+      "departmentEn": "Cloud",
+      "departmentAr": "السحابة",
+      "bioEn": "Certified cloud architect specializing in multi-cloud strategies, IAM policies, and cost optimization for enterprise workloads.",
+      "bioAr": "مهندسة سحابة معتمدة متخصصة في استراتيجيات السحابة المتعددة وسياسات إدارة الهويات وتحسين التكاليف.",
+      "rating": 4.8,
+      "status": "active",
+      "specialties": [
+        "AWS",
+        "Cloud Architecture",
+        "IAM"
+      ],
+      "avatar": "assets/img/teachers/emily.jpg"
+    },
+    {
+      "id": "206",
+      "firstNameEn": "Omar",
+      "firstNameAr": "عمر",
+      "lastNameEn": "Khalil",
+      "lastNameAr": "خليل",
+      "email": "omar.khalil@example.com",
+      "phone": "+1-555-0106",
+      "departmentEn": "AI/ML",
+      "departmentAr": "الذكاء الاصطناعي والتعلم الآلي",
+      "bioEn": "AI researcher dedicated to making machine learning concepts accessible, with publications in NLP and computer vision.",
+      "bioAr": "باحث في الذكاء الاصطناعي يسعى لتبسيط مفاهيم التعلم الآلي، مع أبحاث منشورة في معالجة اللغة الطبيعية ورؤية الحاسوب.",
+      "rating": 4.6,
+      "status": "active",
+      "specialties": [
+        "Machine Learning",
+        "Python",
+        "Deep Learning"
+      ],
+      "avatar": "assets/img/teachers/omar.jpg"
+    },
+    {
+      "id": "207",
+      "firstNameEn": "Laila",
+      "firstNameAr": "ليلى",
+      "lastNameEn": "Nasser",
+      "lastNameAr": "ناصر",
+      "email": "laila.nasser@example.com",
+      "phone": "+1-555-0107",
+      "departmentEn": "DevOps",
+      "departmentAr": "ديف أوبس",
+      "bioEn": "Site Reliability Engineer and DevOps culture coach, helping teams build robust CI/CD pipelines and observability stacks.",
+      "bioAr": "مهندسة موثوقية المواقع ومدربة ثقافة DevOps، تساعد الفرق في بناء خطوط CI/CD وأنظمة المراقبة.",
+      "rating": 4.7,
+      "status": "active",
+      "specialties": [
+        "Docker",
+        "Kubernetes",
+        "CI/CD"
+      ],
+      "avatar": "assets/img/teachers/laila.jpg"
+    },
+    {
+      "id": "208",
+      "firstNameEn": "Noor",
+      "firstNameAr": "نور",
+      "lastNameEn": "Alami",
+      "lastNameAr": "عالمي",
+      "email": "noor.alami@example.com",
+      "phone": "+1-555-0108",
+      "departmentEn": "Mobile",
+      "departmentAr": "الجوال",
+      "bioEn": "Mobile UX lead and design systems architect with extensive experience in cross-platform app development.",
+      "bioAr": "قائدة تجربة المستخدم للجوال ومهندسة أنظمة التصميم مع خبرة واسعة في تطوير التطبيقات متعددة المنصات.",
+      "rating": 4.5,
+      "status": "active",
+      "specialties": [
+        "React Native",
+        "Flutter",
+        "Mobile UX"
+      ],
+      "avatar": "assets/img/teachers/noor.jpg"
+    },
+    {
+      "id": "209",
+      "firstNameEn": "Carlos",
+      "firstNameAr": "كارلوس",
+      "lastNameEn": "Rivera",
+      "lastNameAr": "ريفيرا",
+      "email": "carlos.rivera@example.com",
+      "phone": "+1-555-0109",
+      "departmentEn": "Backend",
+      "departmentAr": "الواجهة الخلفية",
+      "bioEn": "Node.js expert and API security consultant who has helped over 30 companies harden their backend services.",
+      "bioAr": "خبير Node.js ومستشار أمن واجهات برمجة التطبيقات ساعد أكثر من 30 شركة في تعزيز خدماتها الخلفية.",
+      "rating": 4.6,
+      "status": "active",
+      "specialties": [
+        "Node.js",
+        "REST APIs",
+        "GraphQL"
+      ],
+      "avatar": "assets/img/teachers/carlos.jpg"
+    },
+    {
+      "id": "210",
+      "firstNameEn": "Sara",
+      "firstNameAr": "سارة",
+      "lastNameEn": "Mahmoud",
+      "lastNameAr": "محمود",
+      "email": "sara.mahmoud@example.com",
+      "phone": "+1-555-0110",
+      "departmentEn": "Frontend",
+      "departmentAr": "الواجهة الأمامية",
+      "bioEn": "CSS architecture and animation specialist known for crafting pixel-perfect, performant user interfaces with modern tooling.",
+      "bioAr": "متخصصة في بنية CSS والحركات معروفة ببناء واجهات مستخدم دقيقة وعالية الأداء باستخدام الأدوات الحديثة.",
+      "rating": 4.8,
+      "status": "active",
+      "specialties": [
+        "CSS",
+        "Animation",
+        "Tailwind CSS"
+      ],
+      "avatar": "assets/img/teachers/sara.jpg"
+    },
+    {
+      "id": "211",
+      "firstNameEn": "James",
+      "firstNameAr": "جيمس",
+      "lastNameEn": "ONeil",
+      "lastNameAr": "أونيل",
+      "email": "james.oneil@example.com",
+      "phone": "+1-555-0111",
+      "departmentEn": "Security",
+      "departmentAr": "الأمن",
+      "bioEn": "Secure coding trainer and threat modeling expert with 12 years in cybersecurity consulting and penetration testing.",
+      "bioAr": "مدرب برمجة آمنة وخبير نمذجة التهديدات بخبرة 12 سنة في الاستشارات الأمنية واختبار الاختراق.",
+      "rating": 4.7,
+      "status": "inactive",
+      "specialties": [
+        "OWASP",
+        "Penetration Testing",
+        "Secure Coding"
+      ],
+      "avatar": "assets/img/teachers/james.jpg"
+    },
+    {
+      "id": "212",
+      "firstNameEn": "Aisha",
+      "firstNameAr": "عائشة",
+      "lastNameEn": "Rahman",
+      "lastNameAr": "رحمن",
+      "email": "aisha.rahman@example.com",
+      "phone": "+1-555-0112",
+      "departmentEn": "Product",
+      "departmentAr": "المنتج",
+      "bioEn": "Product strategy and discovery coach who has led product teams at three unicorn startups and mentored 200+ PMs globally.",
+      "bioAr": "مدربة استراتيجية واكتشاف المنتجات قادت فرق المنتج في ثلاث شركات ناشئة وأرشدت أكثر من 200 مدير منتج عالمياً.",
+      "rating": 4.9,
+      "status": "active",
+      "specialties": [
+        "Product Strategy",
+        "Agile",
+        "User Research"
+      ],
+      "avatar": "assets/img/teachers/aisha.jpg"
+    },
+    {
+      "id": "213",
+      "firstNameEn": "Tom",
+      "firstNameAr": "توم",
+      "lastNameEn": "Becker",
+      "lastNameAr": "بيكر",
+      "email": "tom.becker@example.com",
+      "phone": "+1-555-0113",
+      "departmentEn": "Testing",
+      "departmentAr": "الاختبارات",
+      "bioEn": "QA lead specializing in test automation frameworks, helping teams achieve 90%+ code coverage with Cypress and Jest.",
+      "bioAr": "قائد ضمان الجودة متخصص في أطر أتمتة الاختبارات، يساعد الفرق على تحقيق تغطية كود تزيد عن 90% باستخدام Cypress و Jest.",
+      "rating": 4.5,
+      "status": "active",
+      "specialties": [
+        "Selenium",
+        "Jest",
+        "Cypress"
+      ],
+      "avatar": "assets/img/teachers/tom.jpg"
+    },
+    {
+      "id": "214",
+      "firstNameEn": "Reem",
+      "firstNameAr": "ريم",
+      "lastNameEn": "Saeed",
+      "lastNameAr": "سعيد",
+      "email": "reem.saeed@example.com",
+      "phone": "+1-555-0114",
+      "departmentEn": "Analytics",
+      "departmentAr": "التحليلات",
+      "bioEn": "Analytics consultant for BI and KPIs with deep expertise in Power BI, SQL, and data storytelling for executive audiences.",
+      "bioAr": "مستشارة تحليلات لذكاء الأعمال ومؤشرات الأداء مع خبرة عميقة في Power BI وSQL وسرد القصص البيانية للمسؤولين.",
+      "rating": 4.7,
+      "status": "active",
+      "specialties": [
+        "Power BI",
+        "SQL",
+        "Business Intelligence"
+      ],
+      "avatar": "assets/img/teachers/reem.jpg"
+    },
+    {
+      "id": "215",
+      "firstNameEn": "Mark",
+      "firstNameAr": "مارك",
+      "lastNameEn": "Johnson",
+      "lastNameAr": "جونسون",
+      "email": "mark.johnson@example.com",
+      "phone": "+1-555-0115",
+      "departmentEn": "Marketing",
+      "departmentAr": "التسويق",
+      "bioEn": "Digital marketing strategist with 10 years driving SEO, SEM, and content campaigns for Fortune 500 brands.",
+      "bioAr": "استراتيجي تسويق رقمي بخبرة 10 سنوات في قيادة حملات تحسين محركات البحث والإعلانات والمحتوى لشركات كبرى.",
+      "rating": 4.6,
+      "status": "active",
+      "specialties": [
+        "SEO",
+        "SEM",
+        "Content Strategy"
+      ],
+      "avatar": "assets/img/teachers/mark.jpg"
+    }
+  ],
+  "students": [
+    {
+      "id": "101",
+      "firstNameEn": "Alice",
+      "firstNameAr": "أليس",
+      "lastNameEn": "Johnson",
+      "lastNameAr": "جونسون",
+      "email": "alice.johnson@example.com",
+      "phone": "+1-555-0201",
+      "status": "active",
+      "enrolledCourseIds": [
+        1,
+        2
+      ],
+      "avatar": "assets/img/students/alice.jpg"
+    },
+    {
+      "id": "102",
+      "firstNameEn": "Bob",
+      "firstNameAr": "بوب",
+      "lastNameEn": "Smith",
+      "lastNameAr": "سميث",
+      "email": "bob.smith@example.com",
+      "phone": "+1-555-0202",
+      "status": "active",
+      "enrolledCourseIds": [
+        3
+      ],
+      "avatar": "assets/img/students/bob.jpg"
+    },
+    {
+      "id": "103",
+      "firstNameEn": "Chen",
+      "firstNameAr": "تشن",
+      "lastNameEn": "Wei",
+      "lastNameAr": "وي",
+      "email": "chen.wei@example.com",
+      "phone": "+1-555-0203",
+      "status": "inactive",
+      "enrolledCourseIds": [],
+      "avatar": "assets/img/students/chen.jpg"
+    },
+    {
+      "id": "104",
+      "firstNameEn": "Diana",
+      "firstNameAr": "ديانا",
+      "lastNameEn": "Lopez",
+      "lastNameAr": "لوبيز",
+      "email": "diana.lopez@example.com",
+      "phone": "+1-555-0204",
+      "status": "active",
+      "enrolledCourseIds": [
+        4
+      ],
+      "avatar": "assets/img/students/diana.jpg"
+    },
+    {
+      "id": "105",
+      "firstNameEn": "Ethan",
+      "firstNameAr": "إيثان",
+      "lastNameEn": "Brown",
+      "lastNameAr": "براون",
+      "email": "ethan.brown@example.com",
+      "phone": "+1-555-0205",
+      "status": "active",
+      "enrolledCourseIds": [
+        5,
+        7
+      ],
+      "avatar": "assets/img/students/ethan.jpg"
+    },
+    {
+      "id": "106",
+      "firstNameEn": "Fatima",
+      "firstNameAr": "فاطمة",
+      "lastNameEn": "Hassan",
+      "lastNameAr": "حسن",
+      "email": "fatima.hassan@example.com",
+      "phone": "+1-555-0206",
+      "status": "active",
+      "enrolledCourseIds": [
+        6
+      ],
+      "avatar": "assets/img/students/fatima.jpg"
+    },
+    {
+      "id": "107",
+      "firstNameEn": "George",
+      "firstNameAr": "جورج",
+      "lastNameEn": "Stone",
+      "lastNameAr": "ستون",
+      "email": "george.stone@example.com",
+      "phone": "+1-555-0207",
+      "status": "active",
+      "enrolledCourseIds": [
+        8
+      ],
+      "avatar": "assets/img/students/george.jpg"
+    },
+    {
+      "id": "108",
+      "firstNameEn": "Hala",
+      "firstNameAr": "هلا",
+      "lastNameEn": "Yousef",
+      "lastNameAr": "يوسف",
+      "email": "hala.yousef@example.com",
+      "phone": "+1-555-0208",
+      "status": "active",
+      "enrolledCourseIds": [
+        9,
+        11
+      ],
+      "avatar": "assets/img/students/hala.jpg"
+    },
+    {
+      "id": "109",
+      "firstNameEn": "Ibrahim",
+      "firstNameAr": "إبراهيم",
+      "lastNameEn": "Saleh",
+      "lastNameAr": "صالح",
+      "email": "ibrahim.saleh@example.com",
+      "phone": "+1-555-0209",
+      "status": "active",
+      "enrolledCourseIds": [
+        10
+      ],
+      "avatar": "assets/img/students/ibrahim.jpg"
+    },
+    {
+      "id": "110",
+      "firstNameEn": "Jana",
+      "firstNameAr": "جانا",
+      "lastNameEn": "Kassis",
+      "lastNameAr": "قسس",
+      "email": "jana.kassis@example.com",
+      "phone": "+1-555-0210",
+      "status": "active",
+      "enrolledCourseIds": [
+        12
+      ],
+      "avatar": "assets/img/students/jana.jpg"
+    },
+    {
+      "id": "111",
+      "firstNameEn": "Khaled",
+      "firstNameAr": "خالد",
+      "lastNameEn": "Faraj",
+      "lastNameAr": "فرج",
+      "email": "khaled.faraj@example.com",
+      "phone": "+1-555-0211",
+      "status": "active",
+      "enrolledCourseIds": [
+        13
+      ],
+      "avatar": "assets/img/students/khaled.jpg"
+    },
+    {
+      "id": "112",
+      "firstNameEn": "Layla",
+      "firstNameAr": "ليلى",
+      "lastNameEn": "Omar",
+      "lastNameAr": "عمر",
+      "email": "layla.omar@example.com",
+      "phone": "+1-555-0212",
+      "status": "active",
+      "enrolledCourseIds": [
+        14
+      ],
+      "avatar": "assets/img/students/layla.jpg"
+    },
+    {
+      "id": "113",
+      "firstNameEn": "Mohamed",
+      "firstNameAr": "محمد",
+      "lastNameEn": "Ali",
+      "lastNameAr": "علي",
+      "email": "mohamed.ali@example.com",
+      "phone": "+1-555-0213",
+      "status": "active",
+      "enrolledCourseIds": [
+        15
+      ],
+      "avatar": "assets/img/students/mohamed.jpg"
+    },
+    {
+      "id": "114",
+      "firstNameEn": "Nadia",
+      "firstNameAr": "ناديا",
+      "lastNameEn": "Rahim",
+      "lastNameAr": "رحيم",
+      "email": "nadia.rahim@example.com",
+      "phone": "+1-555-0214",
+      "status": "inactive",
+      "enrolledCourseIds": [],
+      "avatar": "assets/img/students/nadia.jpg"
+    },
+    {
+      "id": "115",
+      "firstNameEn": "Omar",
+      "firstNameAr": "عمر",
+      "lastNameEn": "Zaki",
+      "lastNameAr": "زكي",
+      "email": "omar.zaki@example.com",
+      "phone": "+1-555-0215",
+      "status": "active",
+      "enrolledCourseIds": [
+        1,
+        11
+      ],
+      "avatar": "assets/img/students/omar.jpg"
+    }
+  ],
+  "enrollments": [
+    {
+      "id": "1002",
+      "courseId": 2,
+      "studentId": 101,
+      "enrolledOn": "2025-02-01",
+      "status": "in_progress",
+      "progress": 5
+    },
+    {
+      "id": "1003",
+      "courseId": 3,
+      "studentId": 102,
+      "enrolledOn": "2025-01-15",
+      "status": "completed",
+      "progress": 100,
+      "score": 92
+    },
+    {
+      "id": "1004",
+      "courseId": 4,
+      "studentId": 104,
+      "enrolledOn": "2025-01-28",
+      "status": "in_progress",
+      "progress": 25
+    },
+    {
+      "id": "1005",
+      "courseId": 5,
+      "studentId": 105,
+      "enrolledOn": "2025-01-30",
+      "status": "in_progress",
+      "progress": 15
+    },
+    {
+      "id": "1006",
+      "courseId": 6,
+      "studentId": 106,
+      "enrolledOn": "2025-01-20",
+      "status": "completed",
+      "progress": 100,
+      "score": 95
+    },
+    {
+      "id": "1007",
+      "courseId": 7,
+      "studentId": 105,
+      "enrolledOn": "2025-01-31",
+      "status": "in_progress",
+      "progress": 8
+    },
+    {
+      "id": "1008",
+      "courseId": 8,
+      "studentId": 107,
+      "enrolledOn": "2025-01-29",
+      "status": "in_progress",
+      "progress": 20
+    },
+    {
+      "id": "1009",
+      "courseId": 9,
+      "studentId": 108,
+      "enrolledOn": "2025-01-25",
+      "status": "completed",
+      "progress": 100,
+      "score": 90
+    },
+    {
+      "id": "1010",
+      "courseId": 10,
+      "studentId": 109,
+      "enrolledOn": "2025-01-28",
+      "status": "in_progress",
+      "progress": 5
+    },
+    {
+      "id": "1011",
+      "courseId": 11,
+      "studentId": 108,
+      "enrolledOn": "2025-01-28",
+      "status": "in_progress",
+      "progress": 15
+    },
+    {
+      "id": "1012",
+      "courseId": 12,
+      "studentId": 110,
+      "enrolledOn": "2025-02-01",
+      "status": "pending",
+      "progress": 0
+    },
+    {
+      "id": "1013",
+      "courseId": 13,
+      "studentId": 111,
+      "enrolledOn": "2025-01-18",
+      "status": "completed",
+      "progress": 100,
+      "score": 88
+    },
+    {
+      "id": "1014",
+      "courseId": 14,
+      "studentId": 112,
+      "enrolledOn": "2025-01-26",
+      "status": "in_progress",
+      "progress": 12
+    },
+    {
+      "id": "1015",
+      "courseId": 15,
+      "studentId": 113,
+      "enrolledOn": "2025-01-25",
+      "status": "in_progress",
+      "progress": 10
+    },
+    {
+      "id": "d120",
+      "courseId": 1,
+      "studentId": 101,
+      "enrolledAt": "2026-03-03",
+      "status": "active"
+    }
+  ],
+  "evaluations": [
+    {
+      "id": "1",
+      "teacherId": "201",
+      "reviewerName": "Alice Johnson",
+      "rating": 5,
+      "comment": "Outstanding Angular expertise. Made complex architecture patterns crystal clear for our whole team.",
+      "date": "2025-12-01"
+    },
+    {
+      "id": "2",
+      "teacherId": "201",
+      "reviewerName": "Omar Zaki",
+      "rating": 4,
+      "comment": "Great instructor, very patient with questions and always provides practical real-world examples.",
+      "date": "2025-11-15"
+    },
+    {
+      "id": "3",
+      "teacherId": "202",
+      "reviewerName": "Ethan Brown",
+      "rating": 5,
+      "comment": "Miguel's D3.js examples were fantastic. I learned more in one session than I had in months of self-study.",
+      "date": "2025-12-05"
+    },
+    {
+      "id": "4",
+      "teacherId": "203",
+      "reviewerName": "Bob Smith",
+      "rating": 5,
+      "comment": "Priya has an incredible eye for design. Every critique session improved my work tremendously.",
+      "date": "2025-11-20"
+    },
+    {
+      "id": "5",
+      "teacherId": "204",
+      "reviewerName": "Diana Lopez",
+      "rating": 4,
+      "comment": "Samir explains React hooks and state management with great clarity and practical exercises.",
+      "date": "2025-12-10"
+    },
+    {
+      "id": "6",
+      "teacherId": "205",
+      "reviewerName": "Ethan Brown",
+      "rating": 5,
+      "comment": "Emily made cloud architecture approachable for everyone. Her IAM deep dive was especially valuable.",
+      "date": "2025-12-03"
+    },
+    {
+      "id": "7",
+      "teacherId": "206",
+      "reviewerName": "Fatima Hassan",
+      "rating": 4,
+      "comment": "Omar simplifies machine learning concepts brilliantly. His intuitive approach really helped the concepts click.",
+      "date": "2025-11-28"
+    },
+    {
+      "id": "8",
+      "teacherId": "207",
+      "reviewerName": "Ethan Brown",
+      "rating": 5,
+      "comment": "Best DevOps course I have ever taken. Laila's Kubernetes workshop was hands-on and immediately applicable.",
+      "date": "2025-12-08"
+    },
+    {
+      "id": "9",
+      "teacherId": "208",
+      "reviewerName": "George Stone",
+      "rating": 4,
+      "comment": "Noor's mobile UX insights were game-changing for my apps. The design system session was worth its weight in gold.",
+      "date": "2025-11-30"
+    },
+    {
+      "id": "10",
+      "teacherId": "209",
+      "reviewerName": "Hala Yousef",
+      "rating": 5,
+      "comment": "Carlos built my API confidence from zero to hero. His security-first approach to Node.js APIs is refreshing.",
+      "date": "2025-12-12"
+    },
+    {
+      "id": "11",
+      "teacherId": "210",
+      "reviewerName": "Ibrahim Saleh",
+      "rating": 5,
+      "comment": "Sara's CSS animations workshop was incredible. I finally understand the difference between performant and costly animations.",
+      "date": "2025-12-01"
+    },
+    {
+      "id": "12",
+      "teacherId": "211",
+      "reviewerName": "Hala Yousef",
+      "rating": 4,
+      "comment": "James covers security topics methodically and thoroughly. The OWASP Top 10 walkthrough was extremely practical.",
+      "date": "2025-11-25"
+    },
+    {
+      "id": "13",
+      "teacherId": "212",
+      "reviewerName": "Jana Kassis",
+      "rating": 5,
+      "comment": "Aisha's product strategy framework completely changed how I think about discovery and prioritization.",
+      "date": "2025-12-07"
+    },
+    {
+      "id": "14",
+      "teacherId": "214",
+      "reviewerName": "Layla Omar",
+      "rating": 4,
+      "comment": "Reem's analytics storytelling approach is very effective. She helped me communicate data insights to non-technical stakeholders.",
+      "date": "2025-11-22"
+    },
+    {
+      "id": "15",
+      "teacherId": "215",
+      "reviewerName": "Mohamed Ali",
+      "rating": 4,
+      "comment": "Mark gave practical, actionable digital marketing insights that I was able to apply immediately to our campaigns.",
+      "date": "2025-12-04"
+    }
+  ],
+  "schedules": [
+    {
+      "id": "1",
+      "courseId": 1,
+      "date": "2025-02-10",
+      "startTime": "09:00",
+      "endTime": "11:00",
+      "room": "Lab A",
+      "notes": "Bring laptop with Node.js installed"
+    },
+    {
+      "id": "2",
+      "courseId": 1,
+      "date": "2025-02-17",
+      "startTime": "09:00",
+      "endTime": "11:00",
+      "room": "Lab A",
+      "notes": "Reactive Forms deep dive"
+    },
+    {
+      "id": "3",
+      "courseId": 2,
+      "date": "2025-02-12",
+      "startTime": "10:00",
+      "endTime": "12:00",
+      "room": "PC Lab B",
+      "notes": ""
+    },
+    {
+      "id": "4",
+      "courseId": 2,
+      "date": "2025-02-19",
+      "startTime": "10:00",
+      "endTime": "12:00",
+      "room": "PC Lab B",
+      "notes": "Bring dataset for exercise"
+    },
+    {
+      "id": "5",
+      "courseId": 3,
+      "date": "2025-02-11",
+      "startTime": "13:00",
+      "endTime": "15:00",
+      "room": "Design Studio",
+      "notes": ""
+    },
+    {
+      "id": "6",
+      "courseId": 3,
+      "date": "2025-02-18",
+      "startTime": "13:00",
+      "endTime": "15:00",
+      "room": "Design Studio",
+      "notes": "Wireframing workshop"
+    },
+    {
+      "id": "7",
+      "courseId": 4,
+      "date": "2025-02-13",
+      "startTime": "09:00",
+      "endTime": "11:00",
+      "room": "Lab A",
+      "notes": ""
+    },
+    {
+      "id": "8",
+      "courseId": 4,
+      "date": "2025-02-20",
+      "startTime": "09:00",
+      "endTime": "11:00",
+      "room": "Lab A",
+      "notes": "Hooks and state management"
+    },
+    {
+      "id": "9",
+      "courseId": 5,
+      "date": "2025-02-10",
+      "startTime": "14:00",
+      "endTime": "16:00",
+      "room": "Seminar Room 1",
+      "notes": ""
+    },
+    {
+      "id": "10",
+      "courseId": 5,
+      "date": "2025-02-17",
+      "startTime": "14:00",
+      "endTime": "16:00",
+      "room": "Seminar Room 1",
+      "notes": "Hands-on AWS console demo"
+    },
+    {
+      "id": "11",
+      "courseId": 6,
+      "date": "2025-02-14",
+      "startTime": "10:00",
+      "endTime": "12:00",
+      "room": "Conference Room A",
+      "notes": ""
+    },
+    {
+      "id": "12",
+      "courseId": 6,
+      "date": "2025-02-21",
+      "startTime": "10:00",
+      "endTime": "12:00",
+      "room": "Conference Room A",
+      "notes": "Intro to neural networks"
+    },
+    {
+      "id": "13",
+      "courseId": 7,
+      "date": "2025-02-11",
+      "startTime": "09:00",
+      "endTime": "11:00",
+      "room": "Lab B",
+      "notes": ""
+    },
+    {
+      "id": "14",
+      "courseId": 7,
+      "date": "2025-02-18",
+      "startTime": "09:00",
+      "endTime": "11:00",
+      "room": "Lab B",
+      "notes": "CI/CD pipeline exercise"
+    },
+    {
+      "id": "15",
+      "courseId": 8,
+      "date": "2025-02-12",
+      "startTime": "13:00",
+      "endTime": "15:00",
+      "room": "Design Studio",
+      "notes": ""
+    },
+    {
+      "id": "16",
+      "courseId": 8,
+      "date": "2025-02-19",
+      "startTime": "13:00",
+      "endTime": "15:00",
+      "room": "Design Studio",
+      "notes": "Prototype review session"
+    },
+    {
+      "id": "17",
+      "courseId": 9,
+      "date": "2025-02-13",
+      "startTime": "14:00",
+      "endTime": "16:00",
+      "room": "Lab A",
+      "notes": ""
+    },
+    {
+      "id": "18",
+      "courseId": 9,
+      "date": "2025-02-20",
+      "startTime": "14:00",
+      "endTime": "16:00",
+      "room": "Lab A",
+      "notes": "Authentication & JWT session"
+    },
+    {
+      "id": "19",
+      "courseId": 10,
+      "date": "2025-02-14",
+      "startTime": "09:00",
+      "endTime": "11:00",
+      "room": "PC Lab B",
+      "notes": ""
+    },
+    {
+      "id": "20",
+      "courseId": 10,
+      "date": "2025-02-21",
+      "startTime": "09:00",
+      "endTime": "11:00",
+      "room": "PC Lab B",
+      "notes": "CSS animations workshop"
+    },
+    {
+      "id": "21",
+      "courseId": 11,
+      "date": "2025-03-03",
+      "startTime": "10:00",
+      "endTime": "12:00",
+      "room": "Seminar Room 2",
+      "notes": "OWASP Top 10 overview"
+    },
+    {
+      "id": "22",
+      "courseId": 12,
+      "date": "2025-03-04",
+      "startTime": "13:00",
+      "endTime": "15:00",
+      "room": "Conference Room B",
+      "notes": ""
+    },
+    {
+      "id": "23",
+      "courseId": 13,
+      "date": "2025-03-05",
+      "startTime": "09:00",
+      "endTime": "11:00",
+      "room": "Lab B",
+      "notes": "Cypress end-to-end testing demo"
+    },
+    {
+      "id": "24",
+      "courseId": 14,
+      "date": "2025-03-06",
+      "startTime": "10:00",
+      "endTime": "12:00",
+      "room": "PC Lab B",
+      "notes": ""
+    },
+    {
+      "id": "25",
+      "courseId": 15,
+      "date": "2025-03-07",
+      "startTime": "14:00",
+      "endTime": "16:00",
+      "room": "Seminar Room 1",
+      "notes": "SEO and paid ads workshop"
+    }
+  ],
+  "materials": [
+    {
+      "id": "1",
+      "courseId": 1,
+      "titleEn": "Angular Fundamentals Slides",
+      "titleAr": "شرائح أساسيات أنجولار",
+      "type": "PDF",
+      "url": "assets/materials/angular-fundamentals.pdf",
+      "descriptionEn": "Introduction slides covering Angular core concepts",
+      "descriptionAr": "شرائح تمهيدية تغطي المفاهيم الأساسية لأنجولار",
+      "order": 1
+    },
+    {
+      "id": "2",
+      "courseId": 1,
+      "titleEn": "Component Architecture Guide",
+      "titleAr": "دليل معمارية المكونات",
+      "type": "Document",
+      "url": "assets/materials/component-architecture.docx",
+      "descriptionEn": "Best practices for structuring Angular components",
+      "descriptionAr": "أفضل الممارسات لهيكلة مكونات أنجولار",
+      "order": 2
+    },
+    {
+      "id": "3",
+      "courseId": 2,
+      "titleEn": "D3.js Introduction PDF",
+      "titleAr": "ملف تعريفي بمكتبة D3.js",
+      "type": "PDF",
+      "url": "assets/materials/d3-introduction.pdf",
+      "descriptionEn": "Getting started with D3.js for data visualization",
+      "descriptionAr": "البدء مع D3.js لتصور البيانات",
+      "order": 1
+    },
+    {
+      "id": "4",
+      "courseId": 2,
+      "titleEn": "D3 Gallery and Examples",
+      "titleAr": "معرض أمثلة D3",
+      "type": "Link",
+      "url": "https://observablehq.com/@d3/gallery",
+      "descriptionEn": "Official D3 observable gallery with interactive examples",
+      "descriptionAr": "معرض D3 الرسمي مع أمثلة تفاعلية",
+      "order": 2
+    },
+    {
+      "id": "5",
+      "courseId": 3,
+      "titleEn": "Design Principles Slides",
+      "titleAr": "شرائح مبادئ التصميم",
+      "type": "PDF",
+      "url": "assets/materials/design-principles.pdf",
+      "descriptionEn": "Core visual design principles and Gestalt theory",
+      "descriptionAr": "مبادئ التصميم البصري ونظرية غشتالت",
+      "order": 1
+    },
+    {
+      "id": "6",
+      "courseId": 3,
+      "titleEn": "Figma Tutorial Walkthrough",
+      "titleAr": "شرح فيديو لفيجما",
+      "type": "Video",
+      "url": "assets/materials/figma-tutorial.mp4",
+      "descriptionEn": "Step-by-step Figma tutorial for beginners",
+      "descriptionAr": "شرح خطوة بخطوة لأداة فيجما للمبتدئين",
+      "order": 2
+    },
+    {
+      "id": "7",
+      "courseId": 4,
+      "titleEn": "React Official Documentation",
+      "titleAr": "التوثيق الرسمي لـ React",
+      "type": "Link",
+      "url": "https://react.dev",
+      "descriptionEn": "Official React documentation and interactive tutorials",
+      "descriptionAr": "التوثيق الرسمي لـ React مع دروس تفاعلية",
+      "order": 1
+    },
+    {
+      "id": "8",
+      "courseId": 4,
+      "titleEn": "JSX and Hooks Cheatsheet",
+      "titleAr": "ورقة مرجعية لـ JSX والـ Hooks",
+      "type": "PDF",
+      "url": "assets/materials/jsx-hooks-cheatsheet.pdf",
+      "descriptionEn": "Quick reference for JSX syntax and React Hooks",
+      "descriptionAr": "مرجع سريع لصياغة JSX وـ React Hooks",
+      "order": 2
+    },
+    {
+      "id": "9",
+      "courseId": 5,
+      "titleEn": "Cloud Concepts Overview",
+      "titleAr": "نظرة عامة على مفاهيم الحوسبة السحابية",
+      "type": "PDF",
+      "url": "assets/materials/cloud-concepts.pdf",
+      "descriptionEn": "IaaS, PaaS, SaaS explained with real-world examples",
+      "descriptionAr": "شرح IaaS وPaaS وSaaS مع أمثلة واقعية",
+      "order": 1
+    },
+    {
+      "id": "10",
+      "courseId": 5,
+      "titleEn": "AWS Getting Started Guide",
+      "titleAr": "دليل البدء مع AWS",
+      "type": "Link",
+      "url": "https://aws.amazon.com/getting-started",
+      "descriptionEn": "Official AWS beginner guide and free tier resources",
+      "descriptionAr": "الدليل الرسمي للمبتدئين في AWS وموارد الطبقة المجانية",
+      "order": 2
+    },
+    {
+      "id": "11",
+      "courseId": 6,
+      "titleEn": "Introduction to AI Slides",
+      "titleAr": "شرائح مقدمة في الذكاء الاصطناعي",
+      "type": "PDF",
+      "url": "assets/materials/intro-to-ai.pdf",
+      "descriptionEn": "Overview of AI, ML, and deep learning concepts",
+      "descriptionAr": "نظرة عامة على الذكاء الاصطناعي والتعلم الآلي العميق",
+      "order": 1
+    },
+    {
+      "id": "12",
+      "courseId": 6,
+      "titleEn": "Google ML Crash Course",
+      "titleAr": "دورة تعلم الآلة من Google",
+      "type": "Link",
+      "url": "https://developers.google.com/machine-learning/crash-course",
+      "descriptionEn": "Free ML course from Google with hands-on exercises",
+      "descriptionAr": "دورة تعلم آلة مجانية من Google مع تمارين عملية",
+      "order": 2
+    },
+    {
+      "id": "13",
+      "courseId": 7,
+      "titleEn": "DevOps Pipeline Overview",
+      "titleAr": "نظرة عامة على خط DevOps",
+      "type": "PDF",
+      "url": "assets/materials/devops-pipeline.pdf",
+      "descriptionEn": "CI/CD concepts, tools, and pipeline design patterns",
+      "descriptionAr": "مفاهيم CI/CD وأدواته وأنماط تصميم الخط",
+      "order": 1
+    },
+    {
+      "id": "14",
+      "courseId": 7,
+      "titleEn": "Docker Basics Video Tutorial",
+      "titleAr": "فيديو أساسيات Docker",
+      "type": "Video",
+      "url": "assets/materials/docker-basics.mp4",
+      "descriptionEn": "Containers, images, and Docker Compose walkthrough",
+      "descriptionAr": "شرح الحاويات والصور وـ Docker Compose",
+      "order": 2
+    },
+    {
+      "id": "15",
+      "courseId": 8,
+      "titleEn": "Mobile UX Patterns Guide",
+      "titleAr": "دليل أنماط تجربة المستخدم للجوال",
+      "type": "PDF",
+      "url": "assets/materials/mobile-ux-patterns.pdf",
+      "descriptionEn": "Common mobile UI patterns and accessibility guidelines",
+      "descriptionAr": "أنماط واجهة الجوال الشائعة وإرشادات إمكانية الوصول",
+      "order": 1
+    },
+    {
+      "id": "16",
+      "courseId": 8,
+      "titleEn": "Flutter Quickstart Codelab",
+      "titleAr": "دليل البداية السريع مع Flutter",
+      "type": "Link",
+      "url": "https://docs.flutter.dev/get-started/codelab",
+      "descriptionEn": "Official Flutter codelab for building your first app",
+      "descriptionAr": "Codelab رسمي لـ Flutter لبناء أول تطبيق لك",
+      "order": 2
+    },
+    {
+      "id": "17",
+      "courseId": 9,
+      "titleEn": "REST API Design Guide",
+      "titleAr": "دليل تصميم REST API",
+      "type": "PDF",
+      "url": "assets/materials/rest-api-design.pdf",
+      "descriptionEn": "Best practices for RESTful API design and versioning",
+      "descriptionAr": "أفضل ممارسات تصميم RESTful API والإصدارات",
+      "order": 1
+    },
+    {
+      "id": "18",
+      "courseId": 9,
+      "titleEn": "Postman Collection for Course APIs",
+      "titleAr": "مجموعة Postman لواجهات الدورة",
+      "type": "Link",
+      "url": "assets/materials/postman-collection.json",
+      "descriptionEn": "Ready-to-import Postman collection for all course exercises",
+      "descriptionAr": "مجموعة Postman جاهزة للاستيراد لجميع تمارين الدورة",
+      "order": 2
+    },
+    {
+      "id": "19",
+      "courseId": 10,
+      "titleEn": "CSS Grid and Flexbox Cheatsheet",
+      "titleAr": "ورقة مرجعية لـ CSS Grid وFlexbox",
+      "type": "PDF",
+      "url": "assets/materials/css-grid-flexbox.pdf",
+      "descriptionEn": "Visual reference for Grid and Flexbox layout systems",
+      "descriptionAr": "مرجع بصري لأنظمة تخطيط Grid وFlexbox",
+      "order": 1
+    },
+    {
+      "id": "20",
+      "courseId": 10,
+      "titleEn": "CSS Animations Workshop Recording",
+      "titleAr": "تسجيل ورشة تحريك CSS",
+      "type": "Video",
+      "url": "assets/materials/css-animations.mp4",
+      "descriptionEn": "Full recording of the CSS animations and transitions workshop",
+      "descriptionAr": "تسجيل كامل لورشة تحريكات CSS والانتقالات",
+      "order": 2
+    },
+    {
+      "id": "21",
+      "courseId": 11,
+      "titleEn": "OWASP Top 10 Reference Guide",
+      "titleAr": "دليل مرجعي لـ OWASP Top 10",
+      "type": "PDF",
+      "url": "assets/materials/owasp-top10.pdf",
+      "descriptionEn": "Detailed breakdown of the OWASP Top 10 security risks",
+      "descriptionAr": "تفصيل مفصل لأبرز 10 مخاطر أمنية وفق OWASP",
+      "order": 1
+    },
+    {
+      "id": "22",
+      "courseId": 12,
+      "titleEn": "Product Discovery Framework",
+      "titleAr": "إطار عمل اكتشاف المنتج",
+      "type": "Document",
+      "url": "assets/materials/product-discovery.docx",
+      "descriptionEn": "Structured framework for product discovery and prioritization",
+      "descriptionAr": "إطار منظم لاكتشاف المنتج وتحديد الأولويات",
+      "order": 1
+    },
+    {
+      "id": "23",
+      "courseId": 13,
+      "titleEn": "Cypress E2E Testing Guide",
+      "titleAr": "دليل اختبارات Cypress E2E",
+      "type": "PDF",
+      "url": "assets/materials/cypress-guide.pdf",
+      "descriptionEn": "End-to-end testing with Cypress: setup, tests, and CI",
+      "descriptionAr": "اختبارات شاملة مع Cypress: الإعداد والاختبارات والـ CI",
+      "order": 1
+    },
+    {
+      "id": "24",
+      "courseId": 14,
+      "titleEn": "Business Analytics Starter Dataset",
+      "titleAr": "مجموعة بيانات تحليلات الأعمال",
+      "type": "Link",
+      "url": "assets/materials/analytics-dataset.xlsx",
+      "descriptionEn": "Sample dataset for hands-on analytics exercises",
+      "descriptionAr": "مجموعة بيانات نموذجية لتمارين التحليل العملي",
+      "order": 1
+    },
+    {
+      "id": "25",
+      "courseId": 15,
+      "titleEn": "Digital Marketing Strategy Template",
+      "titleAr": "قالب استراتيجية التسويق الرقمي",
+      "type": "Document",
+      "url": "assets/materials/marketing-strategy-template.docx",
+      "descriptionEn": "Editable template for building a complete digital marketing plan",
+      "descriptionAr": "قالب قابل للتعديل لبناء خطة تسويق رقمي متكاملة",
+      "order": 1
+    },
+    {
+      "id": "90b4",
+      "titleEn": "dfasd",
+      "titleAr": "شسيبشسي",
+      "type": "PDF",
+      "url": "شسيبشسي",
+      "descriptionEn": "شسيبشيسب",
+      "descriptionAr": "شسيبشسيب",
+      "order": 1,
+      "courseId": 1
+    },
+    {
+      "id": "7e5f",
+      "titleEn": "fga",
+      "titleAr": "asdf",
+      "type": "PDF",
+      "url": "asdas",
+      "descriptionEn": "asdf",
+      "descriptionAr": "asdf",
+      "order": 1,
+      "courseId": 1
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

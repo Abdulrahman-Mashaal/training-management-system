@@ -1,0 +1,20 @@
+// ── Search accordion chevron ──────────────────────────────────────────────────
+//
+// The chevron template is declared inside PageList (via #toggleicon slot),
+// so Angular's ViewEncapsulation correctly scopes these selectors — no ::ng-deep
+// needed for the icon itself.
+//
+.search-accordion-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--p-surface-500);
+  transition: transform 0.25s ease;
+
+  // When the accordion panel is open the parent passes active=true to the
+  // template context, which Angular binds as [class.is-open]="active".
+  &.is-open {
+    transform: rotate(180deg);
+  }
+}

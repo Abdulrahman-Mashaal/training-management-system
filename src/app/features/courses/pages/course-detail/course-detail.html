@@ -1,0 +1,358 @@
+<div class="flex flex-col gap-6 w-full">
+  <div class="flex flex-col-reverse sm:flex-row sm:items-center justify-between gap-4 mb-2">
+    <div class="flex items-center gap-4">
+      <h1 class="text-2xl md:text-3xl font-extrabold text-gray-800 tracking-tight">
+        {{ 'COURSES.VIEWDETAILTITLE' | translate }}
+      </h1>
+    </div>
+
+    <div class="flex gap-2">
+      <!-- ── Back link ──────────────────────────────────────────────────────── -->
+      <p-button
+        [iconPos]="isRtl() ? 'right' : 'left'"
+        [icon]="isRtl() ? 'pi pi-arrow-right' : 'pi pi-arrow-left'"
+        [label]="'COURSES.DETAIL.BACK' | translate"
+        severity="secondary"
+        [outlined]="true"
+        routerLink="/courses"
+      />
+    </div>
+  </div>
+
+  <!-- ── Course header card ─────────────────────────────────────────────── -->
+  @if (loading()) {
+    <div class="bg-white rounded-xl border border-[#E9EAEB] shadow-sm p-6 flex flex-col gap-3">
+      <p-skeleton height="2rem" width="60%" />
+      <p-skeleton height="1rem" width="40%" />
+      <p-skeleton height="1rem" width="30%" />
+    </div>
+  } @else if (course(); as c) {
+    <div class="bg-white rounded-xl border border-[#E9EAEB] shadow-[0px_1px_2px_0px_#0A0D120D] p-6">
+      <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+        <!-- Course info -->
+        <div class="flex flex-col gap-2">
+          <div class="flex items-center gap-3 flex-wrap">
+            <h1 class="text-2xl font-extrabold text-gray-800">{{ courseTitle() }}</h1>
+            <p-tag
+              [value]="'COURSES.STATUS_' + c.status.toUpperCase() | translate"
+              [severity]="getStatusSeverity(c.status)"
+            />
+            <p-tag
+              [value]="'COURSES.LEVEL_' + c.level.toUpperCase() | translate"
+              [severity]="getLevelSeverity(c.level)"
+            />
+          </div>
+          <p class="text-sm text-gray-500">
+            {{ 'COURSES.CODE' | translate }}:
+            <span class="font-mono font-semibold">{{ c.code }}</span>
+          </p>
+          <p class="text-sm text-gray-500">
+            {{ 'COURSES.DETAIL.TEACHER_LABEL' | translate }}:
+            <span class="font-medium text-gray-700">{{ teacherName() }}</span>
+          </p>
+          <p class="text-sm text-gray-500">
+            {{ c.startDate }} : {{ c.endDate }} &nbsp;·&nbsp;{{ c.durationHours
+            }}{{ isRtl() ? 'س' : 'h' }} &nbsp;·&nbsp;{{
+              'COURSES.DETAIL.SEATS_AVAILABLE' | translate
+            }}: {{ c.seatsTotal - c.seatsTaken }} / {{ c.seatsTotal }}
+          </p>
+          @if (courseSummary()) {
+            <p class="text-sm text-gray-600 mt-1 max-w-2xl">{{ courseSummary() }}</p>
+          }
+        </div>
+
+        <!-- Edit button -->
+        <p-button
+          icon="pi pi-pencil"
+          [label]="'COMMON.EDIT' | translate"
+          severity="secondary"
+          [outlined]="true"
+          (onClick)="editDialogVisible.set(true)"
+        />
+      </div>
+    </div>
+  }
+
+  <!-- ── Schedules section ──────────────────────────────────────────────── -->
+  <div
+    class="bg-white rounded-xl border border-[#E9EAEB] shadow-[0px_1px_2px_0px_#0A0D120D] overflow-hidden"
+  >
+    <div class="flex items-center justify-between px-6 py-4 border-b border-[#E9EAEB]">
+      <h2 class="text-lg font-bold text-gray-800">{{ 'COURSES.DETAIL.SCHEDULES' | translate }}</h2>
+      <p-button
+        icon="pi pi-plus"
+        size="small"
+        [label]="'COURSES.DETAIL.ADD_SCHEDULE' | translate"
+        (onClick)="openScheduleDialog()"
+      />
+    </div>
+
+    @if (loading()) {
+      <div class="p-6 flex flex-col gap-3">
+        @for (_ of [1, 2, 3]; track _) {
+          <p-skeleton height="2.5rem" />
+        }
+      </div>
+    } @else if (schedules().length === 0) {
+      <div class="table-empty py-12 flex flex-col items-center justify-center text-gray-400">
+        <i class="pi pi-calendar-times text-4xl mb-3"></i>
+        <p class="text-sm font-medium">{{ 'COURSES.DETAIL.NO_SCHEDULES' | translate }}</p>
+      </div>
+    } @else {
+      <div class="overflow-x-auto">
+        <table class="w-full">
+          <thead class="bg-gray-50 border-b border-[#E9EAEB]">
+            <tr>
+              <th class="px-4 py-4 text-start font-bold text-gray-800">
+                {{ 'COURSES.DETAIL.SCHEDULE_DATE' | translate }}
+              </th>
+              <th class="px-4 py-4 text-start font-bold text-gray-800">
+                {{ 'COURSES.DETAIL.SCHEDULE_TIME' | translate }}
+              </th>
+              <th class="px-4 py-4 text-start font-bold text-gray-800">
+                {{ 'COURSES.DETAIL.SCHEDULE_ROOM' | translate }}
+              </th>
+              <th class="px-4 py-4 text-start font-bold text-gray-800">
+                {{ 'COURSES.DETAIL.SCHEDULE_NOTES' | translate }}
+              </th>
+              <th class="px-4 py-4 text-end font-bold text-gray-800">
+                {{ 'TABLE.ACTIONS' | translate }}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (s of schedules(); track s.id) {
+              <tr
+                class="border-b border-[#F0F0F0] hover:bg-gray-50 transition-colors last:border-0"
+              >
+                <td class="px-4 py-3 font-medium text-gray-800">{{ s.date }}</td>
+                <td class="px-4 py-3 text-gray-600">{{ s.startTime }} – {{ s.endTime }}</td>
+                <td class="px-4 py-3 text-gray-600">{{ s.room }}</td>
+                <td class="px-4 py-3 text-gray-500">{{ s.notes || '—' }}</td>
+                <td class="px-4 py-3">
+                  <div class="flex gap-1 justify-end">
+                    <p-button
+                      icon="pi pi-pencil"
+                      [text]="true"
+                      size="large"
+                      severity="secondary"
+                      [pTooltip]="'COMMON.EDIT' | translate"
+                      tooltipPosition="bottom"
+                      (onClick)="openScheduleDialog(s)"
+                    />
+                    <p-button
+                      icon="pi pi-trash"
+                      [text]="true"
+                      size="large"
+                      severity="danger"
+                      [pTooltip]="'COMMON.DELETE' | translate"
+                      tooltipPosition="bottom"
+                      [loading]="deletingScheduleId() === s.id"
+                      (onClick)="deleteSchedule(s)"
+                    />
+                  </div>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    }
+  </div>
+
+  <!-- ── Materials section ──────────────────────────────────────────────── -->
+  <div
+    class="bg-white rounded-xl border border-[#E9EAEB] shadow-[0px_1px_2px_0px_#0A0D120D] overflow-hidden"
+  >
+    <div class="flex items-center justify-between px-6 py-4 border-b border-[#E9EAEB]">
+      <h2 class="text-lg font-bold text-gray-800">{{ 'COURSES.DETAIL.MATERIALS' | translate }}</h2>
+      <p-button
+        icon="pi pi-plus"
+        size="small"
+        [label]="'COURSES.DETAIL.ADD_MATERIAL' | translate"
+        (onClick)="openMaterialDialog()"
+      />
+    </div>
+
+    @if (loading()) {
+      <div class="p-6 flex flex-col gap-3">
+        @for (_ of [1, 2]; track _) {
+          <p-skeleton height="3rem" />
+        }
+      </div>
+    } @else if (materials().length === 0) {
+      <div class="table-empty py-12 flex flex-col items-center justify-center text-gray-400">
+        <i class="pi pi-folder-open text-4xl mb-3"></i>
+        <p class="text-sm font-medium">{{ 'COURSES.DETAIL.NO_MATERIALS' | translate }}</p>
+      </div>
+    } @else {
+      <div class="divide-y divide-[#F0F0F0]">
+        @for (m of materials(); track m.id) {
+          <div
+            class="flex items-center justify-between gap-4 px-6 py-4 hover:bg-gray-50 transition-colors"
+          >
+            <div class="flex items-center gap-3 min-w-0">
+              <i [class]="getMaterialIcon(m.type) + ' text-primary-600 text-xl shrink-0'"></i>
+              <div class="min-w-0">
+                <p class="font-bold text-gray-800 truncate">{{ getMaterialTitle(m) }}</p>
+                <p class="text-xs text-gray-500">{{ m.type }} · #{{ m.order }}</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-1 shrink-0">
+              <a
+                [href]="m.url"
+                target="_blank"
+                rel="noopener"
+                class="text-primary-600 hover:text-primary-700 flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-100 transition-colors"
+                [pTooltip]="'COMMON.VIEW' | translate"
+                tooltipPosition="bottom"
+              >
+                <i class="pi pi-external-link text-lg"></i>
+              </a>
+              <p-button
+                icon="pi pi-pencil"
+                [text]="true"
+                size="large"
+                severity="secondary"
+                [pTooltip]="'COMMON.EDIT' | translate"
+                tooltipPosition="bottom"
+                (onClick)="openMaterialDialog(m)"
+              />
+              <p-button
+                icon="pi pi-trash"
+                [text]="true"
+                size="large"
+                severity="danger"
+                [pTooltip]="'COMMON.DELETE' | translate"
+                tooltipPosition="bottom"
+                [loading]="deletingMaterialId() === m.id"
+                (onClick)="deleteMaterial(m)"
+              />
+            </div>
+          </div>
+        }
+      </div>
+    }
+  </div>
+
+  <!-- ── Enrolled students section ──────────────────────────────────────── -->
+  <div
+    class="bg-white rounded-xl border border-[#E9EAEB] shadow-[0px_1px_2px_0px_#0A0D120D] overflow-hidden"
+  >
+    <div class="flex items-center justify-between px-6 py-4 border-b border-[#E9EAEB]">
+      <h2 class="text-lg font-bold text-gray-800">{{ 'COURSES.DETAIL.STUDENTS' | translate }}</h2>
+    </div>
+
+    <!-- Enroll picker -->
+    <div
+      class="flex flex-col sm:flex-row items-start sm:items-center gap-3 px-6 py-4 bg-gray-50 border-b border-[#E9EAEB]"
+    >
+      <p-select
+        [options]="enrollOptions()"
+        [(ngModel)]="selectedStudentId"
+        optionLabel="label"
+        optionValue="value"
+        [placeholder]="'COURSES.DETAIL.ENROLL_STUDENT' | translate"
+        [filter]="true"
+        filterBy="label"
+        class="flex-1 w-full sm:w-auto min-w-48"
+        styleClass="w-full"
+        appendTo="body"
+      />
+      <p-button
+        icon="pi pi-user-plus"
+        [label]="'COURSES.DETAIL.ENROLL_STUDENT' | translate"
+        size="small"
+        [disabled]="!selectedStudentId()"
+        [loading]="enrollingStudentId() !== null"
+        (onClick)="enrollStudent()"
+      />
+    </div>
+
+    @if (loading()) {
+      <div class="p-6 flex flex-col gap-3">
+        @for (_ of [1, 2, 3]; track _) {
+          <p-skeleton height="2.5rem" />
+        }
+      </div>
+    } @else if (enrolledStudents().length === 0) {
+      <div class="table-empty py-12 flex flex-col items-center justify-center text-gray-400">
+        <i class="pi pi-users text-4xl mb-3"></i>
+        <p class="text-sm font-medium">{{ 'COURSES.DETAIL.NO_STUDENTS' | translate }}</p>
+      </div>
+    } @else {
+      <div class="overflow-x-auto">
+        <table class="w-full">
+          <thead class="bg-gray-50 border-b border-[#E9EAEB]">
+            <tr>
+              <th class="px-4 py-4 text-start font-bold text-gray-800">
+                {{ 'STUDENTS.FIRST_NAME' | translate }}
+              </th>
+              <th class="px-4 py-4 text-start font-bold text-gray-800">
+                {{ 'STUDENTS.EMAIL' | translate }}
+              </th>
+              <th class="px-4 py-4 text-start font-bold text-gray-800">
+                {{ 'COURSES.DETAIL.ENROLLED_AT' | translate }}
+              </th>
+              <th class="px-4 py-4 text-end font-bold text-gray-800">
+                {{ 'TABLE.ACTIONS' | translate }}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (item of enrolledStudents(); track item.enrollment.id) {
+              <tr
+                class="border-b border-[#F0F0F0] hover:bg-gray-50 transition-colors last:border-0"
+              >
+                <td class="px-4 py-3 font-medium text-gray-800">
+                  {{ getStudentName(item.student) }}
+                </td>
+                <td class="px-4 py-3 text-gray-600">{{ item.student?.email ?? '—' }}</td>
+                <td class="px-4 py-3 text-gray-600">
+                  {{ item.enrollment.enrolledAt ?? item.enrollment.enrolledOn ?? '—' }}
+                </td>
+                <td class="px-4 py-3">
+                  <div class="flex justify-end gap-1">
+                    <p-button
+                      icon="pi pi-user-minus"
+                      [text]="true"
+                      size="large"
+                      severity="danger"
+                      [pTooltip]="'COURSES.ENROLLMENT.REMOVE_TITLE' | translate"
+                      tooltipPosition="bottom"
+                      [loading]="removingEnrollmentId() === item.enrollment.id"
+                      (onClick)="removeEnrollment(item.enrollment)"
+                    />
+                  </div>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    }
+  </div>
+</div>
+
+<!-- ── Dialogs ─────────────────────────────────────────────────────────────── -->
+@if (course()) {
+  <app-course-dialog
+    [(visible)]="editDialogVisible"
+    [course]="course()"
+    (saved)="onCourseSaved()"
+  />
+}
+
+<app-schedule-dialog
+  [(visible)]="schedDialogVisible"
+  [schedule]="editingSchedule()"
+  [courseId]="courseId"
+  (saved)="onScheduleSaved()"
+/>
+
+<app-material-dialog
+  [(visible)]="matDialogVisible"
+  [material]="editingMaterial()"
+  [courseId]="courseId"
+  (saved)="onMaterialSaved()"
+/>

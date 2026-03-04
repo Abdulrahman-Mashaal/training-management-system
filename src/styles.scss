@@ -1,1 +1,51 @@
-/* You can add global styles to this file, and also import other style files */
+@use 'primeicons/primeicons.css';
+
+// Global PrimeNG form component overrides — applied outside any CSS layer
+// so they win over @layer primeng without needing !important.
+@use 'app/shared/styles/forms';
+
+// ── Base Application Reset ────────────────────────────────────────────────────
+//
+// WRONG approach: user-select: none on body
+//   → breaks copy-paste for all content (bad UX + accessibility)
+//
+// CORRECT approach:
+//   1. cursor: default  — prevent I-beam cursor on non-editable text
+//   2. user-select: none — only on UI chrome that should never be copied
+//   3. Restore cursor: pointer / cursor: text where semantically correct
+// ─────────────────────────────────────────────────────────────────────────────
+
+// 1. Arrow cursor by default everywhere — no I-beam on non-editable text
+html,
+body {
+  cursor: default;
+}
+
+// 2. user-select: none ONLY on UI chrome elements that users never need to copy
+//    (navigation, headings, labels, buttons).
+//    Content areas (p, td, span with data) keep default so users can copy text.
+h1, h2, h3, h4, h5, h6,
+label,
+button,
+nav,
+header,
+footer {
+  user-select: none;
+}
+
+// 3. Clickable elements get pointer cursor
+a,
+button,
+[role='button'],
+label[for],
+summary {
+  cursor: pointer;
+}
+
+// 4. Editable elements keep the text cursor
+input,
+textarea,
+select,
+[contenteditable='true'] {
+  cursor: text;
+}

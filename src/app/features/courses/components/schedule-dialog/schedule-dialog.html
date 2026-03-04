@@ -1,0 +1,78 @@
+<p-dialog
+  [visible]="visible()"
+  (visibleChange)="visible.set($event)"
+  (onHide)="onHide()"
+  [header]="(isEditMode ? 'COURSES.SCHEDULE.DIALOG_TITLE_EDIT' : 'COURSES.SCHEDULE.DIALOG_TITLE_ADD') | translate"
+  [modal]="true"
+  [draggable]="false"
+  [resizable]="false"
+  [style]="{ width: '480px' }"
+  [breakpoints]="{ '600px': '95vw' }"
+  appendTo="body"
+>
+  <form [formGroup]="form" (ngSubmit)="onSave()" id="scheduleForm">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+      <!-- Date (full width) — minDate=today prevents selecting past dates -->
+      <app-form-field
+        type="datepicker"
+        formControlName="date"
+        label="COURSES.SCHEDULE.DATE"
+        [minDate]="today"
+        class="md:col-span-2"
+      />
+
+      <!-- Start / End time -->
+      <app-form-field
+        type="text"
+        formControlName="startTime"
+        label="COURSES.SCHEDULE.START_TIME"
+        placeholder="HH:MM"
+      />
+      <app-form-field
+        type="text"
+        formControlName="endTime"
+        label="COURSES.SCHEDULE.END_TIME"
+        placeholder="HH:MM"
+      />
+
+      <!-- Room (full width) -->
+      <app-form-field
+        type="text"
+        formControlName="room"
+        label="COURSES.SCHEDULE.ROOM"
+        class="md:col-span-2"
+      />
+
+      <!-- Notes (full width) -->
+      <app-form-field
+        type="textarea"
+        formControlName="notes"
+        label="COURSES.SCHEDULE.NOTES"
+        [rows]="2"
+        class="md:col-span-2"
+      />
+
+    </div>
+  </form>
+
+  <ng-template #footer>
+    <div class="flex gap-3 ms-auto">
+      <p-button
+        type="button"
+        [label]="'COMMON.CANCEL' | translate"
+        severity="secondary"
+        [text]="true"
+        [disabled]="saving()"
+        (onClick)="onCancel()"
+      />
+      <p-button
+        form="scheduleForm"
+        type="submit"
+        [label]="(isEditMode ? 'COURSES.SCHEDULE.BTN_SAVE' : 'COURSES.SCHEDULE.BTN_ADD') | translate"
+        [loading]="saving()"
+        (onClick)="onSave()"
+      />
+    </div>
+  </ng-template>
+</p-dialog>

@@ -268,9 +268,6 @@ The active environment file is swapped at build time by Angular's `fileReplaceme
 ```bash
 ng build --configuration production
 ```
-
+  
 ---
 
-## License
-
-This project is private. All rights reserved.

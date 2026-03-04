@@ -1,0 +1,76 @@
+<p-dialog
+  [visible]="visible()"
+  (visibleChange)="visible.set($event)"
+  (onHide)="onHide()"
+  [header]="(isEditMode ? 'STUDENTS.DIALOG.TITLE_EDIT' : 'STUDENTS.DIALOG.TITLE_ADD') | translate"
+  [modal]="true"
+  [draggable]="false"
+  [resizable]="false"
+  [style]="{ width: '560px' }"
+  [breakpoints]="{ '768px': '95vw' }"
+  appendTo="body"
+>
+  <form [formGroup]="form" (ngSubmit)="onSave()" id="studentForm">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <app-form-field
+        type="text"
+        formControlName="firstNameEn"
+        label="STUDENTS.DIALOG.FIRST_NAME_EN"
+      />
+      <app-form-field
+        type="text"
+        formControlName="firstNameAr"
+        label="STUDENTS.DIALOG.FIRST_NAME_AR"
+      />
+      <app-form-field
+        type="text"
+        formControlName="lastNameEn"
+        label="STUDENTS.DIALOG.LAST_NAME_EN"
+      />
+      <app-form-field
+        type="text"
+        formControlName="lastNameAr"
+        label="STUDENTS.DIALOG.LAST_NAME_AR"
+      />
+      <app-form-field
+        type="text"
+        formControlName="email"
+        label="STUDENTS.EMAIL"
+        class="md:col-span-2"
+      />
+      <app-form-field
+        type="text"
+        formControlName="phone"
+        label="STUDENTS.PHONE"
+        class="md:col-span-2"
+      />
+      <app-form-field
+        type="radio"
+        formControlName="status"
+        label="STUDENTS.STATUS"
+        [options]="computedStatusOptions"
+        class="md:col-span-2"
+      />
+    </div>
+  </form>
+
+  <ng-template #footer>
+    <div class="flex gap-3 ms-auto">
+      <p-button
+        type="button"
+        [label]="'COMMON.CANCEL' | translate"
+        severity="secondary"
+        [text]="true"
+        [disabled]="saving()"
+        (onClick)="onCancel()"
+      />
+      <p-button
+        form="studentForm"
+        type="submit"
+        [label]="(isEditMode ? 'STUDENTS.DIALOG.BTN_SAVE' : 'STUDENTS.DIALOG.BTN_ADD') | translate"
+        [loading]="saving()"
+        (onClick)="onSave()"
+      />
+    </div>
+  </ng-template>
+</p-dialog>

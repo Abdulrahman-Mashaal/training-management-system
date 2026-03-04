@@ -1,0 +1,39 @@
+<div class="lang-switcher">
+  <!-- Trigger button -->
+  <button
+    class="flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors cursor-pointer"
+    (click)="toggle($event)"
+    type="button"
+  >
+    <i class="pi pi-globe text-base"></i>
+    <span>{{ langService.currentLangLabel() }}</span>
+    <i
+      class="pi pi-angle-down text-xs transition-transform duration-200 text-md mt-[2px]"
+      [class.rotate-180]="isOpen()"
+    ></i>
+  </button>
+
+  <!-- Dropdown panel -->
+  @if (isOpen()) {
+    <ul
+      class="lang-dropdown absolute bottom-full md:top-full md:bottom-auto mt-1 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-md shadow-card-sm min-w-32 z-50 overflow-hidden"
+    >
+      @for (lang of langService.languages; track lang.code) {
+        <li>
+          <button
+            type="button"
+            class="w-full flex items-center justify-between gap-3 px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors cursor-pointer"
+            [class.text-primary-600]="lang.code === langService.currentLang()"
+            [class.font-semibold]="lang.code === langService.currentLang()"
+            (click)="selectLang(lang.code)"
+          >
+            <span>{{ lang.label }}</span>
+            @if (lang.code === langService.currentLang()) {
+              <i class="pi pi-check text-xs"></i>
+            }
+          </button>
+        </li>
+      }
+    </ul>
+  }
+</div>

@@ -1,0 +1,258 @@
+<div class="flex flex-col gap-4">
+  <!-- ── Header row: Actions and Back link ───────────────────────────────── -->
+  <div class="flex flex-col-reverse sm:flex-row sm:items-center justify-between gap-4 mb-2">
+    <!-- Right side: Title -->
+    <div class="flex items-center gap-4">
+      <h1 class="text-2xl md:text-3xl font-extrabold text-gray-800 tracking-tight">
+        {{ 'TEACHERS.VIEWDETAILTITLE' | translate }}
+      </h1>
+    </div>
+    <!-- Left side: Edit / Delete and Back -->
+    <div class="flex flex-wrap items-center gap-2">
+      <p-button
+        [iconPos]="isRtl()?'right':'left'"
+        [icon]="isRtl()?'pi pi-arrow-right':'pi pi-arrow-left'"
+        [label]="'TEACHERS.DETAIL.BACK' | translate"
+        severity="secondary"
+        [outlined]="true"
+        routerLink="/teachers"
+      />
+      @if (!loading()) {
+        <p-button
+          icon="pi pi-trash"
+          [label]="'COMMON.DELETE' | translate"
+          severity="danger"
+          (onClick)="deleteTeacher()"
+        />
+        <p-button
+          icon="pi pi-pencil"
+          [label]="'COMMON.EDIT' | translate"
+          severity="secondary"
+          (onClick)="editDialogVisible.set(true)"
+        />
+      }
+    </div>
+  </div>
+
+  <!-- ── Main content grid ─────────────────────────────────────────────── -->
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+    <!-- ── Teacher info card (2 of 3 columns on desktop) ─────────────────── -->
+    <div
+      class="lg:col-span-2 bg-white rounded-xl border border-[#E9EAEB] shadow-[0px_1px_2px_0px_#0A0D120D] p-6"
+    >
+      @if (loading()) {
+        <!-- Skeleton while loading -->
+        <div class="flex items-center gap-4 mb-6">
+          <p-skeleton shape="circle" size="5rem" />
+          <div class="flex-1">
+            <p-skeleton width="60%" height="1.5rem" class="mb-2" />
+            <p-skeleton width="40%" height="1rem" />
+          </div>
+        </div>
+        <p-skeleton height="1rem" class="mb-3" />
+        <p-skeleton height="1rem" class="mb-3" />
+        <p-skeleton height="1rem" class="mb-3" />
+        <p-skeleton width="50%" height="1rem" />
+      } @else {
+        <!-- Initials avatar + full name + ID -->
+        <div class="flex items-center gap-4 mb-6">
+          <div
+            class="w-20 h-20 rounded-full bg-[#F2F4F7] flex items-center justify-center text-2xl font-bold text-[#667085] flex-shrink-0 select-none"
+          >
+            {{ teacher()?.firstNameEn?.charAt(0) }}{{ teacher()?.lastNameEn?.charAt(0) }}
+          </div>
+          <div>
+            <h2 class="text-xl font-bold text-[#101828]">{{ displayName() }}</h2>
+            <p class="text-sm text-[#667085]">
+              {{ 'TEACHERS.DETAIL.ID_LABEL' | translate }}: #{{ teacher()?.id }}
+            </p>
+            <!-- Overall rating stars (read-only display) -->
+            <div class="flex items-center gap-2 mt-1">
+              <p-rating [ngModel]="teacher()?.rating" [readonly]="true" [stars]="5" />
+              <span class="text-sm text-[#667085]">{{ teacher()?.rating }}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Info rows -->
+        <div class="divide-y divide-[#E9EAEB]">
+          <div class="py-3 flex justify-between items-center">
+            <span class="text-sm text-[#667085]">{{ 'TEACHERS.EMAIL' | translate }}</span>
+            <span class="text-sm font-medium text-[#101828]">{{ teacher()?.email }}</span>
+          </div>
+          <div class="py-3 flex justify-between items-center">
+            <span class="text-sm text-[#667085]">{{ 'TEACHERS.PHONE' | translate }}</span>
+            <span class="text-sm font-medium text-[#101828]">{{ teacher()?.phone }}</span>
+          </div>
+          <div class="py-3 flex justify-between items-center">
+            <span class="text-sm text-[#667085]">{{ 'TEACHERS.DEPARTMENT' | translate }}</span>
+            <span class="text-sm font-medium text-[#101828]">{{ displayDepartment() }}</span>
+          </div>
+          <div class="py-3 flex justify-between items-center">
+            <span class="text-sm text-[#667085]">{{ 'TEACHERS.STATUS' | translate }}</span>
+            <p-tag
+              [value]="
+                (teacher()?.status === 'active'
+                  ? 'TEACHERS.STATUS_ACTIVE'
+                  : 'TEACHERS.STATUS_INACTIVE'
+                ) | translate
+              "
+              [severity]="getStatusSeverity(teacher()?.status ?? '')"
+            />
+          </div>
+        </div>
+
+        <!-- Bio -->
+        @if (displayBio()) {
+          <div class="mt-4">
+            <p class="text-sm text-[#667085] mb-1">{{ 'TEACHERS.BIO' | translate }}</p>
+            <p class="text-sm text-[#344054] leading-relaxed">{{ displayBio() }}</p>
+          </div>
+        }
+
+        <!-- Specialties -->
+        @if (teacher()?.specialties?.length) {
+          <div class="mt-4">
+            <p class="text-sm text-[#667085] mb-2">{{ 'TEACHERS.SPECIALTIES' | translate }}</p>
+            <div class="flex flex-wrap gap-2">
+              @for (tag of teacher()?.specialties; track tag) {
+                <span
+                  class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-[#F2F4F7] text-[#344054]"
+                >
+                  {{ tag }}
+                </span>
+              }
+            </div>
+          </div>
+        }
+      }
+    </div>
+
+    <!-- ── Assigned courses card (1 of 3 columns on desktop) ─────────────── -->
+    <div class="bg-white rounded-xl border border-[#E9EAEB] shadow-[0px_1px_2px_0px_#0A0D120D] p-6">
+      <h3 class="font-bold text-[#252525] text-base mb-4">
+        {{ 'TEACHERS.DETAIL.ASSIGNED_COURSES' | translate }}
+      </h3>
+
+      @if (loading()) {
+        <p-skeleton height="1rem" styleClass="mb-3" />
+        <p-skeleton height="1rem" styleClass="mb-3" />
+        <p-skeleton width="60%" height="1rem" />
+      } @else if (assignedCourses().length === 0) {
+        <p class="text-sm text-[#667085]">
+          {{ 'TEACHERS.DETAIL.NO_COURSES' | translate }}
+        </p>
+      } @else {
+        <ul class="space-y-3">
+          @for (course of assignedCourses(); track course.id) {
+            <li class="flex items-start gap-2 text-sm text-[#344054]">
+              <i class="pi pi-book text-[#667085] mt-0.5 flex-shrink-0"></i>
+              <span>{{ getCourseDisplayName(course) }}</span>
+            </li>
+          }
+        </ul>
+      }
+    </div>
+  </div>
+  <!-- /grid -->
+
+  <!-- ── Evaluations section (full width) ──────────────────────────────── -->
+  <div class="bg-white rounded-xl border border-[#E9EAEB] shadow-[0px_1px_2px_0px_#0A0D120D] p-6">
+    <!-- Section header: title + avg rating + Add button -->
+    <div class="flex items-center justify-between mb-4">
+      <div class="flex items-center gap-3">
+        <h3 class="font-bold text-[#252525] text-base">
+          {{ 'TEACHERS.DETAIL.EVALUATIONS' | translate }}
+        </h3>
+        @if (!loading() && evaluations().length > 0) {
+          <span class="text-sm text-[#667085]">
+            ({{ avgRating() }} {{ 'TEACHERS.DETAIL.AVG_RATING' | translate }})
+          </span>
+        }
+      </div>
+
+      @if (!loading()) {
+        <p-button
+          icon="pi pi-plus"
+          [label]="'TEACHERS.DETAIL.ADD_EVALUATION' | translate"
+          size="small"
+          (onClick)="openEvalDialog()"
+        />
+      }
+    </div>
+
+    <!-- Loading skeletons -->
+    @if (loading()) {
+      <div class="space-y-4">
+        @for (_ of [1, 2]; track $index) {
+          <div class="border border-[#E9EAEB] rounded-lg p-4">
+            <p-skeleton width="40%" height="1rem" styleClass="mb-2" />
+            <p-skeleton height="1rem" styleClass="mb-2" />
+            <p-skeleton width="60%" height="1rem" />
+          </div>
+        }
+      </div>
+
+      <!-- Empty state -->
+    } @else if (evaluations().length === 0) {
+      <p class="text-sm text-[#667085]">
+        {{ 'TEACHERS.DETAIL.NO_EVALUATIONS' | translate }}
+      </p>
+
+      <!-- Evaluation cards -->
+    } @else {
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+        @for (eval of evaluations(); track eval.id) {
+          <div class="border border-[#E9EAEB] rounded-lg p-4 flex flex-col gap-2">
+            <!-- Reviewer + date -->
+            <div class="flex items-start justify-between">
+              <div>
+                <p class="text-sm font-semibold text-[#101828]">{{ eval.reviewerName }}</p>
+                <p class="text-xs text-[#667085]">{{ eval.date }}</p>
+              </div>
+              <!-- Action buttons -->
+              <div class="flex gap-1 -mt-1">
+                <p-button
+                  icon="pi pi-pencil"
+                  [text]="true"
+                  size="small"
+                  severity="secondary"
+                  (onClick)="openEvalDialog(eval)"
+                />
+                <p-button
+                  icon="pi pi-trash"
+                  [text]="true"
+                  size="small"
+                  severity="danger"
+                  [loading]="deletingEvalId() === eval.id"
+                  (onClick)="deleteEvaluation(eval)"
+                />
+              </div>
+            </div>
+
+            <!-- Star rating (read-only) -->
+            <p-rating [ngModel]="eval.rating" [readonly]="true" [stars]="5" />
+
+            <!-- Comment -->
+            <p class="text-sm text-[#344054] leading-relaxed">{{ eval.comment }}</p>
+          </div>
+        }
+      </div>
+    }
+  </div>
+
+  <!-- ── Edit Teacher dialog ─────────────────────────────────────────────── -->
+  <app-teacher-dialog
+    [(visible)]="editDialogVisible"
+    [teacher]="teacher()"
+    (saved)="onTeacherSaved()"
+  />
+
+  <!-- ── Add / Edit Evaluation dialog ───────────────────────────────────── -->
+  <app-evaluation-dialog
+    [(visible)]="evalDialogVisible"
+    [evaluation]="editingEvaluation()"
+    [teacherId]="teacherId"
+    (saved)="onEvalSaved()"
+  />
+</div>

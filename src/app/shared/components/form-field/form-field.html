@@ -1,0 +1,242 @@
+<div class="form-field" [class.has-error]="hasError">
+  <!-- ── Label ──────────────────────────────────────────────────────────── -->
+  @if (label()) {
+    <label [for]="fieldId" class="field-label">
+      {{ label() | translate }}
+      @if (isRequired) {
+        <span class="required-mark" aria-hidden="true">*</span>
+      }
+    </label>
+  }
+
+  <!-- ── Input area ─────────────────────────────────────────────────────── -->
+  @switch (type()) {
+    <!-- text ──────────────────────────────────────────────────────────── -->
+    @case ('text') {
+      <input
+        pInputText
+        [id]="fieldId"
+        [(ngModel)]="value"
+        (ngModelChange)="handleChange($event)"
+        (blur)="handleBlur()"
+        [placeholder]="placeholder() ? (placeholder()! | translate) : ''"
+        [maxlength]="maxlength() ?? 524288"
+        [disabled]="computedDisabled"
+        [class.p-invalid]="hasError"
+        class="w-full"
+      />
+    }
+
+    <!-- number ─────────────────────────────────────────────────────────── -->
+    @case ('number') {
+      <p-inputNumber
+        [inputId]="fieldId"
+        [(ngModel)]="value"
+        (ngModelChange)="handleChange($event)"
+        (onBlur)="handleBlur()"
+        [placeholder]="placeholder() ? (placeholder()! | translate) : ''"
+        [min]="min()!"
+        [max]="max()!"
+        [mode]="mode()"
+        [currency]="currency()"
+        [disabled]="computedDisabled"
+        [class.p-invalid]="hasError"
+        class="w-full"
+      />
+    }
+
+    <!-- password ───────────────────────────────────────────────────────── -->
+    @case ('password') {
+      <p-password
+        [inputId]="fieldId"
+        [(ngModel)]="value"
+        (ngModelChange)="handleChange($event)"
+        (onBlur)="handleBlur()"
+        [placeholder]="placeholder() ? (placeholder()! | translate) : ''"
+        [disabled]="computedDisabled"
+        [class.p-invalid]="hasError"
+        [feedback]="false"
+        [toggleMask]="true"
+        class="w-full"
+      />
+    }
+
+    <!-- otp ────────────────────────────────────────────────────────────── -->
+    @case ('otp') {
+      <p-inputOtp
+        [id]="fieldId"
+        [(ngModel)]="value"
+        (ngModelChange)="handleChange($event)"
+        (onBlur)="handleBlur()"
+        [length]="otpLength()"
+        [disabled]="computedDisabled"
+        [class.p-invalid]="hasError"
+      />
+    }
+
+    <!-- dropdown ───────────────────────────────────────────────────────── -->
+    @case ('dropdown') {
+      <p-select
+        [inputId]="fieldId"
+        [(ngModel)]="value"
+        (ngModelChange)="handleChange($event)"
+        (onBlur)="handleBlur()"
+        [options]="options()"
+        [optionLabel]="optionLabel()"
+        [optionValue]="optionValue()"
+        [placeholder]="placeholder() ? (placeholder()! | translate) : ''"
+        [filter]="filter()"
+        [showClear]="showClear()"
+        [disabled]="computedDisabled"
+        [class.p-invalid]="hasError"
+        class="w-full"
+        appendTo="body"
+      />
+    }
+
+    <!-- chips ──────────────────────────────────────────────────────────── -->
+    <!-- Free-form tag input when suggestions=[] (typeahead disabled).      -->
+    <!-- Pass [suggestions]="myList" to enable autocomplete suggestions.    -->
+    @case ('chips') {
+      <p-autocomplete
+        [inputId]="fieldId"
+        [(ngModel)]="value"
+        (ngModelChange)="handleChange($event)"
+        (onBlur)="handleBlur()"
+        [suggestions]="suggestions()"
+        [multiple]="true"
+        [typeahead]="suggestions().length > 0"
+        [addOnBlur]="true"
+        [addOnTab]="true"
+        [placeholder]="placeholder() ? (placeholder()! | translate) : ''"
+        [disabled]="computedDisabled"
+        [class.p-invalid]="hasError"
+        class="w-full"
+        appendTo="body"
+      />
+    }
+
+    <!-- multiselect ────────────────────────────────────────────────────── -->
+    @case ('multiselect') {
+      <p-multiselect
+        [inputId]="fieldId"
+        [(ngModel)]="value"
+        (ngModelChange)="handleChange($event)"
+        (onBlur)="handleBlur()"
+        [options]="options()"
+        [optionLabel]="optionLabel()"
+        [optionValue]="optionValue()"
+        [placeholder]="placeholder() ? (placeholder()! | translate) : ''"
+        [filter]="filter()"
+        [disabled]="computedDisabled"
+        [class.p-invalid]="hasError"
+        class="w-full"
+        appendTo="body"
+      />
+    }
+
+    <!-- textarea ───────────────────────────────────────────────────────── -->
+    @case ('textarea') {
+      <textarea
+        pTextarea
+        [id]="fieldId"
+        [(ngModel)]="value"
+        (ngModelChange)="handleChange($event)"
+        (blur)="handleBlur()"
+        [placeholder]="placeholder() ? (placeholder()! | translate) : ''"
+        [rows]="rows()"
+        [maxlength]="maxlength() ?? 524288"
+        [disabled]="computedDisabled"
+        [class.p-invalid]="hasError"
+        class="w-full"
+      ></textarea>
+    }
+
+    <!-- radio ──────────────────────────────────────────────────────────── -->
+    @case ('radio') {
+      <div class="radio-group" (blur)="handleBlur()">
+        @for (opt of options(); track opt.value) {
+          <div class="radio-option">
+            <p-radiobutton
+              [inputId]="fieldId + '_' + opt.value"
+              [name]="fieldId"
+              [value]="opt.value"
+              [(ngModel)]="value"
+              (ngModelChange)="handleChange($event)"
+              [disabled]="computedDisabled || !!opt.disabled"
+              [class.p-invalid]="hasError"
+            />
+            <label [for]="fieldId + '_' + opt.value" class="radio-label">
+              {{ opt.label | translate }}
+            </label>
+          </div>
+        }
+      </div>
+    }
+
+    <!-- datepicker ─────────────────────────────────────────────────────── -->
+    @case ('datepicker') {
+      <p-datepicker
+        [inputId]="fieldId"
+        [(ngModel)]="value"
+        (ngModelChange)="handleChange($event)"
+        (onBlur)="handleBlur()"
+        [minDate]="minDate()!"
+        [maxDate]="maxDate()!"
+        [dateFormat]="dateFormat()"
+        [selectionMode]="selectionMode()"
+        [showTime]="showTime()"
+        [timeOnly]="timeOnly()"
+        [showButtonBar]="showButtonBar()"
+        [showIcon]="showIcon()"
+        [placeholder]="placeholder() ? (placeholder()! | translate) : ''"
+        [disabled]="computedDisabled"
+        [invalid]="hasError"
+        class="w-full"
+        appendTo="body"
+      />
+    }
+
+    <!-- editor ─────────────────────────────────────────────────────────── -->
+    @case ('editor') {
+      <p-editor
+        [id]="fieldId"
+        [(ngModel)]="value"
+        (ngModelChange)="handleChange($event)"
+        (onBlur)="handleBlur()"
+        [style]="editorStyle()"
+        [readonly]="computedDisabled"
+        [class.p-invalid]="hasError"
+      />
+    }
+
+    <!-- tree-select ────────────────────────────────────────────────────── -->
+    @case ('tree-select') {
+      <p-treeselect
+        [inputId]="fieldId"
+        [(ngModel)]="value"
+        (ngModelChange)="handleChange($event)"
+        (onBlur)="handleBlur()"
+        [options]="treeNodes()"
+        [placeholder]="placeholder() ? (placeholder()! | translate) : ''"
+        [disabled]="computedDisabled"
+        [class.p-invalid]="hasError"
+        class="w-full"
+        appendTo="body"
+      />
+    }
+  }
+
+  <!-- ── Hint (hidden while an error is shown) ─────────────────────────── -->
+  @if (hint() && !hasError) {
+    <small class="field-hint">{{ hint() | translate }}</small>
+  }
+
+  <!-- ── Error message ─────────────────────────────────────────────────── -->
+  @if (hasError) {
+    <small class="field-error" role="alert">
+      <i class="pi pi-exclamation-circle"></i>
+      {{ errorMessage }}
+    </small>
+  }
+</div>

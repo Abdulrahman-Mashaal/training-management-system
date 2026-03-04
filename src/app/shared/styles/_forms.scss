@@ -1,0 +1,273 @@
+// ============================================================================
+// Global PrimeNG Form Component Overrides
+//
+// Intentionally written OUTSIDE any @layer so these rules override
+// PrimeNG's @layer primeng { … } styles without needing !important everywhere.
+// Import this file in src/styles.scss.
+// ============================================================================
+
+// ── Shared shape ─────────────────────────────────────────────────────────────
+.p-inputtext,
+.p-textarea,
+.p-inputnumber .p-inputtext,
+.p-password .p-inputtext,
+.p-datepicker .p-datepicker-input,
+.p-select,
+.p-multiselect,
+.p-treeselect {
+  border-radius: 0.5rem;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+// ── Focus ring using the project's primary/gold palette ──────────────────────
+.p-inputtext:enabled:focus,
+.p-textarea:enabled:focus,
+.p-select:not(.p-disabled).p-focus,
+.p-multiselect:not(.p-disabled).p-focus,
+.p-treeselect:not(.p-disabled).p-focus,
+.p-password:not(.p-disabled) .p-inputtext:focus,
+.p-datepicker:not(.p-disabled) .p-datepicker-input:focus {
+  border-color: var(--p-primary-500);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--p-primary-500) 18%, transparent);
+  outline: none;
+}
+
+// ── p-invalid utility (PrimeNG applies this class when [class.p-invalid] is set) ─
+.p-inputtext.p-invalid,
+.p-textarea.p-invalid,
+.p-select.p-invalid,
+.p-multiselect.p-invalid,
+.p-treeselect.p-invalid,
+.p-datepicker.p-invalid .p-datepicker-input {
+  border-color: var(--p-red-500);
+}
+
+// ── OTP input cells ───────────────────────────────────────────────────────────
+.p-inputotp-input {
+  border-radius: 0.5rem;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.125rem;
+  text-align: center;
+
+  &:focus {
+    border-color: var(--p-primary-500);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--p-primary-500) 18%, transparent);
+    outline: none;
+  }
+
+  &.p-invalid {
+    border-color: var(--p-red-500);
+  }
+}
+
+// ── Password strength meter ───────────────────────────────────────────────────
+.p-password-meter {
+  border-radius: 999px;
+}
+.p-password-strength {
+  border-radius: 999px;
+}
+
+// ── Editor ───────────────────────────────────────────────────────────────────
+.p-editor-container {
+  border-radius: 0.5rem;
+  overflow: hidden;
+
+  .p-editor-toolbar {
+    border-radius: 0.5rem 0.5rem 0 0;
+  }
+
+  .p-editor-content {
+    border-radius: 0 0 0.5rem 0.5rem;
+  }
+}
+
+// ── DatePicker panel (appended to body, so must live here) ───────────────────
+.p-datepicker-panel {
+  border-radius: 0.5rem;
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 0.1),
+    0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+// ── Select / MultiSelect dropdown panel ───────────────────────────────────────
+.p-select-overlay,
+.p-multiselect-overlay {
+  border-radius: 0.5rem;
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 0.1),
+    0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+// ── TreeSelect panel ─────────────────────────────────────────────────────────
+.p-treeselect-overlay {
+  border-radius: 0.5rem;
+}
+
+// ── RTL overrides ─────────────────────────────────────────────────────────────
+[dir='rtl'] {
+  // Flip the dropdown caret icon direction
+  .p-select-dropdown,
+  .p-multiselect-trigger,
+  .p-treeselect-trigger {
+    border-radius: 0.5rem 0 0 0.5rem;
+  }
+
+  // Password toggle icon position
+  .p-password-toggle-mask-icon {
+    right: auto;
+    left: 0.75rem;
+  }
+
+  // InputNumber spinner buttons
+  .p-inputnumber-button-group {
+    flex-direction: row-reverse;
+  }
+
+  // ── DatePicker RTL fixes ─────────────────────────────────────────────────
+
+  // 1. Move the trigger button to the RIGHT (leading/start side in RTL).
+  //    In a RTL flex row the button naturally lands on the left; order:-1 moves
+  //    it visually before the input → right side in RTL.
+  .p-datepicker .p-datepicker-trigger {
+    order: -1;
+  }
+
+  // 2. Mirror the prev/next chevron icons so they point the right direction.
+  //    PrimeNG swaps button POSITIONS for RTL but not the icon DIRECTION,
+  //    leaving > on the left and < on the right — both pointing LTR.
+  //    scaleX(-1) flips each icon to match the RTL navigation direction.
+  .p-datepicker-panel {
+    .p-datepicker-prev-button svg,
+    .p-datepicker-prev-button .p-button-icon,
+    .p-datepicker-next-button svg,
+    .p-datepicker-next-button .p-button-icon {
+      transform: scaleX(-1);
+    }
+  }
+
+  // ── Dialog / ConfirmDialog RTL fixes ─────────────────────────────────────
+
+  // Align dialog content and headers properly in RTL
+  .p-dialog-header,
+  .p-dialog-content {
+    text-align: right;
+  }
+
+  // Reverse button order in dialog footers so primary actions align to the left in RTL
+  .p-dialog-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+  }
+}
+
+// ── Paginator Responsive fixes ───────────────────────────────────────────────
+.p-paginator {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem; // Reduced padding
+
+  .p-paginator-current {
+    flex-basis: 100%;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    order: 1; // Ensure it stays at the top
+  }
+
+  // Ensure content wraps correctly
+  .p-paginator-pages {
+    display: flex;
+    align-items: center;
+    order: 2;
+  }
+
+  // Navigation buttons
+  .p-paginator-first,
+  .p-paginator-prev,
+  .p-paginator-next,
+  .p-paginator-last {
+    order: 2;
+  }
+
+  // Dropdown
+  .p-paginator-rpp-options {
+    order: 2;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .p-paginator {
+    .p-paginator-first,
+    .p-paginator-prev,
+    .p-paginator-next,
+    .p-paginator-last,
+    .p-paginator-pages .p-paginator-page {
+      min-width: 2rem;
+      height: 2rem;
+      margin: 0.125rem;
+      font-size: 0.875rem;
+    }
+
+    .p-paginator-rpp-options {
+      height: 2rem;
+
+      .p-select-label {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.875rem;
+      }
+    }
+
+    // On very small screens, ensure wrapping happens gracefully
+    gap: 0.25rem;
+  }
+
+  // ── Dialog / ConfirmDialog Responsive fixes ──────────────────────────────
+  .p-dialog {
+    width: 90vw !important;
+    max-width: 400px !important; // Cap width so it doesn't stretch too wide
+    min-width: auto !important;
+    margin: 0;
+    box-sizing: border-box;
+
+    .p-dialog-header {
+      padding: 1rem;
+    }
+
+    .p-dialog-content {
+      padding: 0.5rem 1rem 1rem 1rem; // Reduce top padding, keep side padding comfortable
+      word-break: break-word;
+      hyphens: auto;
+    }
+
+    .p-dialog-footer {
+      padding: 0.5rem 1rem 1rem 1rem;
+    }
+  }
+
+  .p-confirm-dialog .p-dialog-content {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem; // Slightly tighter gap for small screens
+  }
+}
+
+// ── Dark mode tweaks ──────────────────────────────────────────────────────────
+.dark {
+  .p-inputtext,
+  .p-textarea,
+  .p-select,
+  .p-multiselect,
+  .p-treeselect {
+    background-color: var(--p-surface-800);
+    color: var(--p-surface-100);
+    border-color: var(--p-surface-600);
+  }
+}

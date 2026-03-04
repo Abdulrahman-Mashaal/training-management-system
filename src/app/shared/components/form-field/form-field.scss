@@ -1,0 +1,131 @@
+// ── Host element ────────────────────────────────────────────────────────────
+:host {
+  display: block; // so the component behaves as a block in grid/flex layouts
+}
+
+// ── Field wrapper ────────────────────────────────────────────────────────────
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  width: 100%;
+}
+
+// ── Label ────────────────────────────────────────────────────────────────────
+.field-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--p-surface-700);
+}
+
+.required-mark {
+  color: var(--p-red-500);
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+// ── Radio group ──────────────────────────────────────────────────────────────
+.radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  padding: 0.25rem 0;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.radio-label {
+  font-size: 0.875rem;
+  color: var(--p-surface-700);
+  cursor: pointer;
+  user-select: none;
+}
+
+// ── Hint text ────────────────────────────────────────────────────────────────
+.field-hint {
+  font-size: 0.75rem;
+  color: var(--p-surface-400);
+  line-height: 1.4;
+}
+
+// ── Error message ────────────────────────────────────────────────────────────
+.field-error {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.75rem;
+  color: var(--p-red-500);
+  line-height: 1.4;
+  animation: error-in 0.15s ease;
+
+  .pi {
+    font-size: 0.75rem;
+    flex-shrink: 0;
+  }
+}
+
+@keyframes error-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+// ── PrimeNG component overrides (scoped to this component) ──────────────────
+// ::ng-deep is the practical way to reach PrimeNG internals per-instance.
+// Global shape / focus overrides live in _forms.scss.
+
+/* stylelint-disable selector-pseudo-element-no-unknown */
+
+// Force full-width on all PrimeNG input wrappers
+::ng-deep {
+  // InputNumber wrapper
+  .p-inputnumber { width: 100%; }
+
+  // Password wrapper + full-width inner input
+  .p-password { width: 100%; }
+  .p-password .p-inputtext { width: 100%; }
+
+  // DatePicker wrapper + full-width input
+  .p-datepicker { width: 100%; }
+  .p-datepicker-input { width: 100%; }
+
+  // Select (Dropdown) label truncation
+  .p-select-label { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+  // OTP: center the cells
+  .p-inputotp { justify-content: flex-start; gap: 0.5rem; }
+
+  // Editor toolbar border-radius
+  .p-editor-toolbar { border-radius: 0.5rem 0.5rem 0 0 !important; }
+  .p-editor-content { border-radius: 0 0 0.5rem 0.5rem !important; }
+
+  // ── Error border on each PrimeNG control ──────────────────────────────
+  .has-error {
+    .p-inputtext:not(:focus),
+    .p-textarea:not(:focus),
+    .p-select:not(.p-focus),
+    .p-multiselect:not(.p-focus),
+    .p-treeselect:not(.p-focus),
+    .p-password .p-inputtext:not(:focus),
+    .p-datepicker .p-datepicker-input:not(:focus) {
+      border-color: var(--p-red-500);
+    }
+
+    .p-editor-container {
+      border-color: var(--p-red-500);
+      border-radius: 0.5rem;
+    }
+
+    // InputOtp cells
+    .p-inputotp-input { border-color: var(--p-red-500); }
+
+    // RadioButton
+    .p-radiobutton-box { border-color: var(--p-red-500); }
+  }
+}

@@ -1,0 +1,49 @@
+<header
+  class="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 h-16 px-6 flex items-center justify-between"
+>
+  <!-- Left side: Mobile Menu Toggle (visible on mobile only) & Title -->
+  <div class="flex items-center gap-4">
+    <button
+      class="lg:hidden p-2 text-gray-600 hover:bg-gray-100 rounded-full cursor-pointer flex items-center justify-center"
+      (click)="toggleSidebar.emit()"
+    >
+      <i class="pi pi-bars text-xl"></i>
+    </button>
+    <h1 class="text-xl font-semibold text-gray-800 dark:text-white hidden sm:block">
+      {{ 'HEADER.TITLE' | translate }}
+    </h1>
+  </div>
+
+  <!-- Right side: Actions -->
+  <div class="flex items-center gap-4">
+    <!-- Language Switcher — desktop only (mobile version lives in the sidebar) -->
+    <div class="hidden lg:block">
+      <app-lang-switcher />
+    </div>
+
+    <div class="h-8 w-px bg-gray-200 dark:bg-gray-700 mx-2"></div>
+
+    <!-- <button
+      class="p-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors relative"
+    >
+      <i class="pi pi-bell text-xl"></i>
+      <span class="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+    </button>
+
+    <div class="h-8 w-px bg-gray-200 dark:bg-gray-700 mx-2"></div> -->
+
+    <div
+      class="flex items-center gap-3 cursor-pointer p-2 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md transition-colors"
+    >
+      <div
+        class="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center text-primary-700 font-bold"
+      >
+        AD
+      </div>
+      <span class="text-sm font-medium text-gray-700 dark:text-gray-300 hidden md:block"
+        >Admin User</span
+      >
+      <!-- <i class="pi pi-angle-down text-gray-400 text-sm hidden md:block"></i> -->
+    </div>
+  </div>
+</header>

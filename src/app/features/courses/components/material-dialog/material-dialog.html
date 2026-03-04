@@ -1,0 +1,87 @@
+<p-dialog
+  [visible]="visible()"
+  (visibleChange)="visible.set($event)"
+  (onHide)="onHide()"
+  [header]="(isEditMode ? 'COURSES.MATERIAL.DIALOG_TITLE_EDIT' : 'COURSES.MATERIAL.DIALOG_TITLE_ADD') | translate"
+  [modal]="true"
+  [draggable]="false"
+  [resizable]="false"
+  [style]="{ width: '600px' }"
+  [breakpoints]="{ '768px': '95vw' }"
+  appendTo="body"
+>
+  <form [formGroup]="form" (ngSubmit)="onSave()" id="materialForm">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+      <!-- Titles -->
+      <app-form-field
+        type="text"
+        formControlName="titleEn"
+        label="COURSES.MATERIAL.TITLE_EN"
+      />
+      <app-form-field
+        type="text"
+        formControlName="titleAr"
+        label="COURSES.MATERIAL.TITLE_AR"
+      />
+
+      <!-- Type + Order -->
+      <app-form-field
+        type="dropdown"
+        formControlName="type"
+        label="COURSES.MATERIAL.TYPE"
+        [options]="typeOptions"
+      />
+      <app-form-field
+        type="number"
+        formControlName="order"
+        label="COURSES.MATERIAL.ORDER"
+      />
+
+      <!-- URL (full width) -->
+      <app-form-field
+        type="text"
+        formControlName="url"
+        label="COURSES.MATERIAL.URL"
+        class="md:col-span-2"
+      />
+
+      <!-- Descriptions -->
+      <app-form-field
+        type="textarea"
+        formControlName="descriptionEn"
+        label="COURSES.MATERIAL.DESC_EN"
+        [rows]="2"
+        class="md:col-span-2"
+      />
+      <app-form-field
+        type="textarea"
+        formControlName="descriptionAr"
+        label="COURSES.MATERIAL.DESC_AR"
+        [rows]="2"
+        class="md:col-span-2"
+      />
+
+    </div>
+  </form>
+
+  <ng-template #footer>
+    <div class="flex gap-3 ms-auto">
+      <p-button
+        type="button"
+        [label]="'COMMON.CANCEL' | translate"
+        severity="secondary"
+        [text]="true"
+        [disabled]="saving()"
+        (onClick)="onCancel()"
+      />
+      <p-button
+        form="materialForm"
+        type="submit"
+        [label]="(isEditMode ? 'COURSES.MATERIAL.BTN_SAVE' : 'COURSES.MATERIAL.BTN_ADD') | translate"
+        [loading]="saving()"
+        (onClick)="onSave()"
+      />
+    </div>
+  </ng-template>
+</p-dialog>

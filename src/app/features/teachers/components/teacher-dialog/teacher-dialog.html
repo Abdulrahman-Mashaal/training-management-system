@@ -1,0 +1,118 @@
+<p-dialog
+  [visible]="visible()"
+  (visibleChange)="visible.set($event)"
+  (onHide)="onHide()"
+  [header]="(isEditMode ? 'TEACHERS.DIALOG.TITLE_EDIT' : 'TEACHERS.DIALOG.TITLE_ADD') | translate"
+  [modal]="true"
+  [draggable]="false"
+  [resizable]="false"
+  [style]="{ width: '680px' }"
+  [breakpoints]="{ '768px': '95vw' }"
+  appendTo="body"
+>
+  <form [formGroup]="form" (ngSubmit)="onSave()" id="teacherForm">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <!-- Names row -->
+      <app-form-field
+        type="text"
+        formControlName="firstNameEn"
+        label="TEACHERS.DIALOG.FIRST_NAME_EN"
+      />
+      <app-form-field
+        type="text"
+        formControlName="firstNameAr"
+        label="TEACHERS.DIALOG.FIRST_NAME_AR"
+      />
+      <app-form-field
+        type="text"
+        formControlName="lastNameEn"
+        label="TEACHERS.DIALOG.LAST_NAME_EN"
+      />
+      <app-form-field
+        type="text"
+        formControlName="lastNameAr"
+        label="TEACHERS.DIALOG.LAST_NAME_AR"
+      />
+
+      <!-- Department row -->
+      <app-form-field
+        type="text"
+        formControlName="departmentEn"
+        label="TEACHERS.DIALOG.DEPARTMENT_EN"
+      />
+      <app-form-field
+        type="text"
+        formControlName="departmentAr"
+        label="TEACHERS.DIALOG.DEPARTMENT_AR"
+      />
+
+      <!-- Contact (full width) -->
+      <app-form-field
+        type="text"
+        formControlName="email"
+        label="TEACHERS.EMAIL"
+        class="md:col-span-2"
+      />
+      <app-form-field
+        type="text"
+        formControlName="phone"
+        label="TEACHERS.PHONE"
+        class="md:col-span-2"
+      />
+
+      <!-- Bio (full width textareas) -->
+      <app-form-field
+        type="textarea"
+        formControlName="bioEn"
+        label="TEACHERS.DIALOG.BIO_EN"
+        [rows]="3"
+        class="md:col-span-2"
+      />
+      <app-form-field
+        type="textarea"
+        formControlName="bioAr"
+        label="TEACHERS.DIALOG.BIO_AR"
+        [rows]="3"
+        class="md:col-span-2"
+      />
+
+      <!-- Status (full width radio) -->
+      <app-form-field
+        type="radio"
+        formControlName="status"
+        label="TEACHERS.STATUS"
+        [options]="computedStatusOptions"
+        class="md:col-span-2"
+      />
+
+      <!-- Specialties chips (full width) -->
+      <app-form-field
+        type="chips"
+        formControlName="specialties"
+        label="TEACHERS.SPECIALTIES"
+        hint="TEACHERS.DIALOG.SPECIALTIES_HINT"
+        class="md:col-span-2"
+      />
+    </div>
+  </form>
+
+  <ng-template #footer>
+    <div class="flex gap-3 ms-auto">
+      <p-button
+        type="button"
+        [label]="'COMMON.CANCEL' | translate"
+        severity="secondary"
+        [text]="true"
+        [disabled]="saving()"
+        (onClick)="onCancel()"
+      />
+      <p-button
+        form="teacherForm"
+        type="submit"
+        [label]="(isEditMode ? 'TEACHERS.DIALOG.BTN_SAVE' : 'TEACHERS.DIALOG.BTN_ADD') | translate"
+        [loading]="saving()"
+        (onClick)="onSave()"
+      />
+    </div>
+  </ng-template>
+</p-dialog>

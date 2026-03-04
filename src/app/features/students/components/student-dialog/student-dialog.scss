@@ -1,0 +1,4 @@
+// Dialog renders via appendTo="body" — outside Angular's ViewEncapsulation scope.
+// Structural dialog tweaks (padding, border-radius, etc.) belong in the global
+// styles.scss under a .p-dialog selector, not here.
+:host { display: contents; }

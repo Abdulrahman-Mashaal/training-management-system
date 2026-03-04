@@ -1,0 +1,2 @@
+// Dialog renders via appendTo="body" — outside Angular's ViewEncapsulation scope.
+:host { display: contents; }

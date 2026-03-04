@@ -1,0 +1,228 @@
+// ── Host ──────────────────────────────────────────────────────────────────────
+:host {
+  display: block;
+}
+
+// ── Responsive Stack Styles ───────────────────────────────────────────────────
+.p-column-title {
+  display: none;
+}
+
+@media screen and (max-width: 960px) {
+  .p-column-title {
+    display: inline-block;
+    margin-right: 0.5rem;
+    min-width: 30%;
+    font-weight: 600;
+  }
+
+  :host ::ng-deep {
+    // Hide headers on mobile
+    .p-datatable.p-datatable-sm .p-datatable-thead > tr > th,
+    .p-datatable.p-datatable-sm .p-datatable-tfoot > tr > td {
+      display: none !important;
+    }
+
+    // Card style for rows
+    .p-datatable.p-datatable-sm .p-datatable-tbody > tr {
+      display: block;
+      width: 100%;
+      margin-bottom: 0.75rem;
+      border: 1px solid var(--p-surface-200);
+      border-radius: 0.75rem;
+      padding: 0.5rem 0;
+      background: var(--p-surface-0);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+
+    // Flex cells
+    .p-datatable.p-datatable-sm .p-datatable-tbody > tr > td {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100% !important;
+      padding: 0.75rem 1rem;
+      text-align: right;
+      white-space: normal !important;
+      border: none;
+      border-bottom: 1px solid var(--p-surface-100);
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      > .p-column-title {
+        text-align: left;
+        color: var(--p-surface-500);
+      }
+    }
+  }
+}
+
+// ── Empty state ───────────────────────────────────────────────────────────────
+.table-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 3rem 1rem;
+  color: var(--p-surface-400);
+
+  i {
+    font-size: 2.5rem;
+  }
+  span {
+    font-size: 0.875rem;
+  }
+}
+
+// ── Paginator restyle ─────────────────────────────────────────────────────────
+:host ::ng-deep .p-paginator {
+  background: transparent;
+  border: none;
+  padding: 1rem 0.5rem;
+  display: flex;
+  justify-content: flex-end; /* Align everything to the right by default, or use space-between if we want spacing */
+  align-items: center;
+  gap: 1rem;
+
+  // Navigation buttons (First, Prev, Next, Last)
+  .p-paginator-first,
+  .p-paginator-prev,
+  .p-paginator-next,
+  .p-paginator-last {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+    color: var(--p-surface-400); // Lighter gray for icons
+    transition:
+      color 0.2s,
+      background-color 0.2s;
+    min-width: unset;
+
+    &:not(.p-disabled):hover {
+      background: transparent;
+      color: var(--p-primary-500); // Color on hover
+    }
+
+    &.p-disabled {
+      opacity: 0.4;
+    }
+
+    // Icon sizing
+    .pi {
+      font-size: 0.8rem;
+    }
+  }
+
+  // Page numbers container
+  .p-paginator-pages {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+
+    .p-paginator-page {
+      min-width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      border: none;
+      background: transparent;
+      color: var(--p-surface-600);
+      font-weight: 500;
+      transition: all 0.2s;
+      margin: 0;
+
+      &:not(.p-highlight):hover {
+        background: var(--p-surface-100);
+        color: var(--p-surface-900);
+      }
+
+      &.p-highlight {
+        background: #0f172a; // Dark background from image (approx slate-900)
+        color: #ffffff;
+        font-weight: 600;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+
+  // Dropdown (Rows per page)
+  .p-dropdown {
+    height: 2.25rem;
+    align-items: center;
+    border-radius: 0.375rem; // Rounded corners like image
+    border: 1px solid var(--p-surface-200);
+    box-shadow: none;
+    margin-left: 1rem; // Add some space from the pagination links
+
+    .p-dropdown-label {
+      padding: 0 0.75rem;
+      font-size: 0.875rem;
+      color: var(--p-surface-700);
+    }
+
+    &:hover {
+      border-color: var(--p-primary-400);
+    }
+
+    &.p-focus {
+      box-shadow: 0 0 0 1px var(--p-primary-400);
+      border-color: var(--p-primary-400);
+    }
+  }
+
+  // Current page report (if enabled)
+  .p-paginator-current {
+    color: var(--p-surface-500);
+    font-size: 0.875rem;
+  }
+}
+
+// ── Mobile Paginator Adjustments ──────────────────────────────────────────────
+@media (max-width: 640px) {
+  :host ::ng-deep .p-paginator {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    padding: 0.75rem 0.5rem;
+
+    // Simplify and reduce clutter on small screens
+    .p-paginator-first,
+    .p-paginator-last {
+      display: none;
+    }
+
+    .p-paginator-prev,
+    .p-paginator-next {
+      width: 1.75rem;
+      height: 1.75rem;
+      order: 1;
+    }
+
+    .p-paginator-pages {
+      order: 1;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.2rem;
+
+      .p-paginator-page {
+        min-width: 1.75rem;
+        height: 1.75rem;
+      }
+    }
+
+    .p-dropdown {
+      order: 2;
+      margin-left: 0;
+      flex: 1 0 100%;
+      display: flex;
+      justify-content: center;
+      min-width: 4.5rem;
+    }
+  }
+}

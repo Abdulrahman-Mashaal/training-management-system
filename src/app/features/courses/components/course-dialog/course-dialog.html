@@ -1,0 +1,133 @@
+<p-dialog
+  [visible]="visible()"
+  (visibleChange)="visible.set($event)"
+  (onHide)="onHide()"
+  [header]="(isEditMode ? 'COURSES.DIALOG.TITLE_EDIT' : 'COURSES.DIALOG.TITLE_ADD') | translate"
+  [modal]="true"
+  [draggable]="false"
+  [resizable]="false"
+  [style]="{ width: '720px' }"
+  [breakpoints]="{ '768px': '95vw' }"
+  appendTo="body"
+>
+  <form [formGroup]="form" (ngSubmit)="onSave()" id="courseForm">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+      <!-- Titles -->
+      <app-form-field
+        type="text"
+        formControlName="titleEn"
+        label="COURSES.TITLE_EN"
+      />
+      <app-form-field
+        type="text"
+        formControlName="titleAr"
+        label="COURSES.TITLE_AR"
+      />
+
+      <!-- Code + Category -->
+      <app-form-field
+        type="text"
+        formControlName="code"
+        label="COURSES.CODE"
+      />
+      <app-form-field
+        type="dropdown"
+        formControlName="categoryId"
+        label="COURSES.CATEGORY"
+        [options]="categoryOptions()"
+      />
+
+      <!-- Level + Status -->
+      <app-form-field
+        type="dropdown"
+        formControlName="level"
+        label="COURSES.LEVEL"
+        [options]="levelOptions"
+      />
+      <app-form-field
+        type="dropdown"
+        formControlName="status"
+        label="COURSES.STATUS"
+        [options]="statusOptions"
+      />
+
+      <!-- Teacher (full width) -->
+      <app-form-field
+        type="dropdown"
+        formControlName="teacherId"
+        label="COURSES.TEACHER"
+        [options]="teacherOptions()"
+        class="md:col-span-2"
+      />
+
+      <!-- Dates -->
+      <app-form-field
+        type="datepicker"
+        formControlName="startDate"
+        label="COURSES.START_DATE"
+      />
+      <app-form-field
+        type="datepicker"
+        formControlName="endDate"
+        label="COURSES.END_DATE"
+        [minDate]="minDateForEnd()"
+      />
+
+      <!-- Duration + Seats + Price -->
+      <app-form-field
+        type="number"
+        formControlName="durationHours"
+        label="COURSES.DURATION_HOURS"
+      />
+      <app-form-field
+        type="number"
+        formControlName="seatsTotal"
+        label="COURSES.SEATS_TOTAL"
+      />
+      <app-form-field
+        type="number"
+        formControlName="price"
+        label="COURSES.PRICE"
+        class="md:col-span-2"
+      />
+
+      <!-- Summaries -->
+      <app-form-field
+        type="textarea"
+        formControlName="summaryEn"
+        label="COURSES.SUMMARY_EN"
+        [rows]="3"
+        class="md:col-span-2"
+      />
+      <app-form-field
+        type="textarea"
+        formControlName="summaryAr"
+        label="COURSES.SUMMARY_AR"
+        [rows]="3"
+        class="md:col-span-2"
+      />
+
+    </div>
+  </form>
+
+  <ng-template #footer>
+    <div class="flex gap-3 ms-auto">
+      <p-button
+        type="button"
+        [label]="'COMMON.CANCEL' | translate"
+        severity="secondary"
+        [text]="true"
+        [disabled]="saving()"
+        (onClick)="onCancel()"
+      />
+      <p-button
+        form="courseForm"
+        type="submit"
+        [label]="(isEditMode ? 'COURSES.DIALOG.BTN_SAVE' : 'COURSES.DIALOG.BTN_ADD') | translate"
+        [loading]="saving()"
+        (onClick)="onSave()"
+      />
+    </div>
+  </ng-template>
+</p-dialog>

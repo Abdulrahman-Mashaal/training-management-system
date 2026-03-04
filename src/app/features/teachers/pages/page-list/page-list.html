@@ -1,0 +1,167 @@
+<div class="flex flex-col gap-4 md:gap-6 w-full">
+  <h1 class="text-2xl md:text-3xl font-extrabold text-gray-800 tracking-tight mb-2 md:mb-4">
+    {{ 'TEACHERS.LISTINGPAGETITLE' | translate }}
+  </h1>
+
+  <!-- ── Search panel ────────────────────────────────────────────────────── -->
+  <div
+    class="bg-white rounded-xl border border-[#E9EAEB] shadow-[0px_1px_2px_0px_#0A0D120D] overflow-hidden"
+  >
+    <p-accordion class="w-full" value="search">
+      <p-accordion-panel value="search">
+
+        <p-accordion-header>
+          <div class="flex items-center justify-between w-full">
+            <span class="font-bold text-[#252525] text-lg">
+              {{ 'FORM.LABELS.SEARCH' | translate }}
+            </span>
+          </div>
+
+          <ng-template #toggleicon let-active="active">
+            <span class="search-accordion-icon" [class.is-open]="active">
+              <svg
+                width="14" height="8" viewBox="0 0 14 8"
+                fill="none" xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M13 7L7 1L1 7"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </span>
+          </ng-template>
+        </p-accordion-header>
+
+        <p-accordion-content>
+          <form [formGroup]="searchForm" (ngSubmit)="onSubmit()" class="pb-5">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <app-form-field
+                type="text"
+                formControlName="firstName"
+                label="TEACHERS.FIRST_NAME"
+              />
+              <app-form-field
+                type="text"
+                formControlName="lastName"
+                label="TEACHERS.LAST_NAME"
+              />
+              <app-form-field
+                type="dropdown"
+                formControlName="status"
+                label="TEACHERS.STATUS"
+                [options]="statusOptions()"
+                [showClear]="true"
+              />
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-end mt-8">
+              <p-button
+                type="button"
+                [label]="'FORM.LABELS.RESET' | translate"
+                severity="secondary"
+                [text]="true"
+                class="w-full sm:w-auto"
+                styleClass="w-full sm:w-auto"
+                (onClick)="resetForm()"
+              />
+              <p-button
+                type="submit"
+                [label]="'FORM.LABELS.SEARCH' | translate"
+                class="w-full sm:w-auto"
+                styleClass="w-full sm:w-auto"
+              />
+            </div>
+          </form>
+        </p-accordion-content>
+      </p-accordion-panel>
+    </p-accordion>
+  </div>
+
+  <!-- ── Add Teacher button ─────────────────────────────────────────────── -->
+  <div class="flex justify-end">
+    <p-button
+      icon="pi pi-plus"
+      [label]="'TEACHERS.DIALOG.BTN_ADD' | translate"
+      (onClick)="openDialog()"
+      class="w-full sm:w-auto"
+      styleClass="w-full sm:w-auto"
+    />
+  </div>
+
+  <!-- ── Teachers table ─────────────────────────────────────────────────── -->
+  <div
+    class="bg-white rounded-xl border border-[#E9EAEB] shadow-[0px_1px_2px_0px_#0A0D120D] overflow-hidden w-full"
+  >
+    <app-table
+      [columns]="columns()"
+      [rows]="rows()"
+      [totalRecords]="total()"
+      [loading]="loading()"
+      [pageSize]="5"
+      [rowsPerPageOptions]="[5, 10, 25]"
+      [first]="tableFirst()"
+      (firstChange)="tableFirst.set($event)"
+      (pageChange)="onPageChange($event)"
+    >
+      <!-- Department: bilingual computed value -->
+      <ng-template appCell="department" let-row>
+        {{ getDepartment(row) }}
+      </ng-template>
+
+      <!-- Status badge -->
+      <ng-template appCell="status" let-row>
+        <p-tag
+          [value]="
+            (row.status === 'active' ? 'TEACHERS.STATUS_ACTIVE' : 'TEACHERS.STATUS_INACTIVE')
+              | translate
+          "
+          [severity]="getStatusSeverity(row.status)"
+        />
+      </ng-template>
+
+      <!-- Row actions: view / edit / delete -->
+      <ng-template appCell="actions" let-row>
+        <div class="flex gap-1">
+          <p-button
+            icon="pi pi-eye"
+            [text]="true"
+            size="large"
+            severity="secondary"
+            [pTooltip]="'COMMON.VIEW' | translate"
+            tooltipPosition="bottom"
+            (onClick)="viewTeacher(row)"
+          />
+          <p-button
+            icon="pi pi-pencil"
+            [text]="true"
+            size="large"
+            severity="secondary"
+            [pTooltip]="'COMMON.EDIT' | translate"
+            tooltipPosition="bottom"
+            (onClick)="openDialog(row)"
+          />
+          <p-button
+            icon="pi pi-trash"
+            [text]="true"
+            size="large"
+            severity="danger"
+            [pTooltip]="'COMMON.DELETE' | translate"
+            tooltipPosition="bottom"
+            [loading]="deletingId() === row.id"
+            (onClick)="deleteTeacher(row)"
+          />
+        </div>
+      </ng-template>
+    </app-table>
+  </div>
+
+  <!-- ── Add / Edit dialog ──────────────────────────────────────────────── -->
+  <app-teacher-dialog
+    [(visible)]="dialogVisible"
+    [teacher]="dialogTeacher()"
+    (saved)="onSaved()"
+  />
+</div>
